@@ -51,6 +51,8 @@ console.log(array) // []
 array2.length = 0
 console.log(array2) // []
 
+//Ще можна просто arr = [] або ж робити pop() або shift() поки масив не закінчиться
+
 /* Task 8 */
 // Спосіб 1: метод pop() - видалення елементу з кінця масиву
 const array3 = [1, 2, 3, 4, 5]
@@ -149,6 +151,11 @@ const deleteElem4 = (array, index) => {
 
 console.log(deleteElem4(array9, 1)) // [2, 3, 4, 5, 4, 2]
 
+// Правильно працює лише спосіб 4 і спосіб 7 (той, де фільтр). 
+// 1, 2 і 3 просто видаляють елемент з початку або з кінця, спосіб 5 і 6 видаляє не по індексу, а по значенню
+// Будь ласка, уважніше читай, що вимагається в завданні
+
+
 /* Task 9 */
 const isEmptyArr = (array) => {
   return !array.length > 0
@@ -156,6 +163,9 @@ const isEmptyArr = (array) => {
 
 console.log(isEmptyArr([])) // true
 console.log(isEmptyArr([1, 2, 3])) // false
+
+// Воно то працює, але якимось зовсім дивним способом. Чому б не перевіряти просто array.length === 0?
+
 
 /* Task 10 */
 // Спосіб 1:
@@ -276,3 +286,7 @@ console.log(parseInteger2([5, 3.14, 4.1, 10, 11, 20.1])) // [5, 10, 11]
 /* Task 15 */
 function nothing() {}
 console.log(nothing()) // undefined
+
+
+
+// В цілому - гуд. Тільки уважніше читай завдання, будь-ласка, та перевіряй свій код
