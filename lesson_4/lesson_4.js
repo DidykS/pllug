@@ -110,8 +110,6 @@ function filterObject(object) {
 
 console.log(filterObject({ a: 22, b: -11.35, c: 41.2, d: 'hello' })) // {a: 22, c: 41.2}
 
-/* Part 2: DOM */
-
 // =============================== Задачі з зірочкою ============================== //
 // 1:
 function stringSum(array) {
@@ -257,3 +255,45 @@ function stringToNumber2(object, array) {
   return newObject
 }
 console.log(stringToNumber2(data2, fieldsToNumber2)) // {a: 21, b: 'sensor', c: 0.2, d: '00,10', f: '21,4', h: 'test'}
+
+/* Part 2: DOM */
+/* Task 1 */
+// DOMContentLoaded - коли браузер повністю завантажив сторінку, побудував DOM модель але css і зображення ще не завантажені
+// load - коли браузер завантажує повністю HTML сторіку, побудував DOM і також завантажує css і зображення
+// beforeunload - при залишинні юзером сторінки, можна запитати його чи він хоче покинути сторінку
+// unload - юзер майже покинув сторінку але лишається змога робити деякі дії
+
+/* Task 2 */
+// async - якщо підключиити даний атрибут до скрипту то це означає що коли браузер дійде до визначеного скрипта він не буде чекати поки він повністю загрузиться, він почне його загрузку в фоновому режимі і продовжить зчитування файлу далі, це актуально якщо підключати script в тезі head
+// defer - він майже робить те саме що і async але якщо присутній другий script, який також є з атрибутом defer то браузер загружає два скірпти по черзі не дивлячись на їхній розмір
+
+/* Task 3 */
+document.addEventListener('DOMContentLoaded', (e) => {
+  console.log('DOMContentLoaded is loaded:', new Date().toLocaleString())
+})
+
+/* Task 4 */
+window.addEventListener('load', (e) => {
+  console.log('Everything is loaded', new Date().toLocaleString())
+})
+
+/* Task 5 */
+window.addEventListener('beforeunload', (e) => {
+  console.log(new Date().toLocaleString())
+})
+
+/* Task 6 */
+console.log(navigator.appCodeName + ' - ' + navigator.platform)
+
+/* Task 7 */
+window.addEventListener('beforeunload', (e) => {
+  return false
+})
+
+/* Task 8 */
+const date = new Date()
+
+window.addEventListener('beforeunload', (e) => {
+  const endPoint = new Date()
+  console.log(((endPoint.getTime() - date.getTime()) / 1000).toFixed(0))
+})
