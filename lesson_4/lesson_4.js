@@ -73,6 +73,8 @@ function lower(str) {
   return str[0].toLowerCase() + str.slice(1)
 }
 
+// Забуваєш в кінці рядків крапку з комою
+
 /* Task 5 */
 const aplhabet = 'abcdefghijklmnopqrstuvwxyz'
 
@@ -87,6 +89,7 @@ function aplhabetC(arr) {
 }
 
 console.log(aplhabetC([4, 3, 22, 11])) // ['d', 'c', 'v', 'k']
+//працює, але ліпше було б юзати String.fromCharCode
 
 // З використанням методу map
 function aplhabet2(arr) {
@@ -94,6 +97,8 @@ function aplhabet2(arr) {
 }
 
 console.log(aplhabet2([4, 3, 22, 11])) // ['d', 'c', 'v', 'k']
+
+// замість arr.map((item) => (item = aplhabet[item - 1])) достатньо було написати arr.map(item => aplhabet[item - 1])
 
 /* Task 6 */
 function filterObject(object) {
@@ -289,6 +294,8 @@ console.log(navigator.appCodeName + ' - ' + navigator.platform)
 window.addEventListener('beforeunload', (e) => {
   return false
 })
+
+//Не виводиться ніяке попередження. Використовуй alert()
 
 /* Task 8 */
 const date = new Date()
