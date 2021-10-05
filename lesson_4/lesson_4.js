@@ -89,6 +89,7 @@ function aplhabetC(arr) {
 }
 
 console.log(aplhabetC([4, 3, 22, 11])) // ['d', 'c', 'v', 'k']
+//працює, але ліпше було б юзати String.fromCharCode
 
 // З використанням методу map
 function aplhabet2(arr) {
