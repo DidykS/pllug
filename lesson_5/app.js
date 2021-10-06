@@ -1,3 +1,5 @@
+/* Part 1: */
+
 /* Task 1 */
 function changeFontSize() {
   const animals = document.querySelector('#animals');
@@ -68,3 +70,60 @@ function createLi() {
 }
 
 createLi();
+
+/* Part 2: */
+
+/* Task 1 */
+function createLsstLi() {
+  const birds = document.querySelector('#birds');
+  const newLi = document.createElement('li');
+  newLi.classList.add('wild', 'dangerous');
+  newLi.innerText = 'Hawk';
+  birds.append(newLi);
+}
+
+createLsstLi();
+
+/* Task 2 */
+function newUl() {
+  const birds = document.querySelector('#birds');
+
+  const fish = document.createElement('ul');
+  const shark = document.createElement('li');
+
+  shark.innerText = 'Shark';
+
+  fish.id = 'fish';
+  shark.classList.add('dangerous');
+
+  birds.before(fish);
+  fish.append(shark);
+}
+
+newUl();
+
+/* Task 3 */
+function reverseElements() {
+  const animals = document.querySelector('#animals');
+  const children = animals.querySelectorAll('li');
+  Array.from(children)
+    .reverse()
+    .forEach((item) => animals.append(item));
+}
+
+reverseElements();
+
+/* Task 4 */
+
+function changeClassToDataAttribute() {
+  const animals = document.querySelector('#animals').children;
+  for (const item of animals) {
+    item.classList.forEach((classOfElement) => {
+      item.setAttribute(`data-${classOfElement}`, '');
+    });
+    item.removeAttribute('class');
+  }
+}
+changeClassToDataAttribute();
+
+// Щоб підкрасити всі нові елементи з класом dangerous червоним потрібно функцію changeColor2 викликати тут.
