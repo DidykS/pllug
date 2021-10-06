@@ -28,6 +28,7 @@ function changeBg() {
 changeBg();
 
 /* Task 4 */
+// Цей приклад спрацює для усіх дочірніх елементів батьківського елементу 'animals'
 function changeColor() {
   const animals = document.querySelector('#animals');
   const children = animals.children;
@@ -41,6 +42,7 @@ function changeColor() {
 
 changeColor();
 
+// Приклад який спрацює для всіх елементів з класом 'dangerous' на сторінці
 function changeColor2() {
   const all = document.querySelectorAll('.dangerous');
   all.forEach((item) => (item.style.color = 'red'));
