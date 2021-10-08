@@ -1,1 +1,97 @@
-/* No CSS *//*# sourceMappingURL=style.css.map */
+/* MAIN STYLES */
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  background-color: #2c3e50;
+  color: #ffff;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.btn {
+  color: #42b983;
+  position: relative;
+  place-content: center;
+  place-items: center;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 99px;
+  letter-spacing: 0.05em;
+  border: 1px solid #42b983;
+  text-decoration: none;
+  text-transform: uppercase;
+  margin-right: 10px;
+  padding: 0.5rem 1.5rem;
+  white-space: nowrap;
+  font-weight: 700;
+  outline: none;
+  background: #ffff;
+  -webkit-transition: all 0.22s;
+  transition: all 0.22s;
+}
+
+.btn:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.btn:active {
+  -webkit-box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.3);
+          box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.btn.green {
+  background: #42b983;
+  color: #ffff;
+}
+
+.btn.danger {
+  background: #e53935;
+  border-color: #e53935;
+  color: #ffff;
+}
+
+.btn.warning {
+  background: #ffc107;
+  border-color: #ffc107;
+  color: #ffff;
+}
+
+/* CONTAINER */
+.container {
+  width: 100%;
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 15px;
+}
+/*# sourceMappingURL=style.css.map */
