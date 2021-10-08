@@ -121,7 +121,9 @@ function changeClassToDataAttribute() {
   const animals = document.querySelector('#animals').children;
   for (const item of animals) {
     item.classList.forEach((classOfElement) => {
-      item.setAttribute(`data-${classOfElement}`, '');
+      item.dataset[classOfElement] = "";
+      // Спосіб 2:
+      // item.setAttribute(`data-${classOfElement}`, '');
     });
     item.removeAttribute('class');
   }
