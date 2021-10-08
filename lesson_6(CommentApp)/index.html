@@ -21,30 +21,32 @@
       <div class="app">
         <h1 class="app__title">My Comments App</h1>
 
-        <form action="" class="form__control">
+        <form id="form" action="" class="form__control">
           <input
-            id="form__control__nickname"
+            id="form__nickname"
+            class="form__control-nickname inputAndArea clear"
             type="text"
             placeholder="Your nickname"
           />
-          <input id="form__control__name" type="text" placeholder="Your name" />
-          <button id="btn" class="btn" type="submit">Add Comment</button>
+          <input
+            id="form__name"
+            class="form__control-name inputAndArea clear"
+            type="text"
+            placeholder="Your name"
+          />
+          <textarea
+            name="area"
+            id="form__area"
+            class="form__control-area inputAndArea clear"
+            placeholder="Your comment"
+          ></textarea>
+          <!-- <button id="btn" class="btn" type="submit"> -->
         </form>
+        <button id="btn" class="btn" type="submit">Add Comment</button>
 
         <div class="app__comments">
           <h2 class="app__comments-title">Your Comments</h2>
-          <hr />
-          <div id="comments">
-            <div class="comment">
-              <div class="comment__header">
-                <span>NickName</span> - <span>Name</span>
-              </div>
-              <p class="comment__content">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta,
-                dolor.
-              </p>
-            </div>
-          </div>
+          <div id="comments" class="comments"></div>
         </div>
       </div>
     </div>

@@ -5,6 +5,7 @@ $green: #42b983;
 $danger: #e53935;
 $warning: #ffc107;
 $white: #ffff;
+$bd: #ccc;
 
 /* MAIN STYLES */
 * {
@@ -22,7 +23,7 @@ body {
   font-family: 'Roboto', sans-serif;
   font-size: 15px;
   background-color: $primary;
-  color: $white;
+  color: $primary;
 }
 
 h1,
@@ -46,7 +47,6 @@ a {
 
 .btn {
   color: #42b983;
-  position: relative;
   place-content: center;
   place-items: center;
   width: fit-content;
@@ -90,6 +90,10 @@ a {
   color: $white;
 }
 
+#btn {
+  display: none;
+}
+
 /* CONTAINER */
 .container {
   width: 100%;
@@ -101,6 +105,77 @@ a {
 // APP
 .app {
   display: flex;
+  justify-content: center;
   flex-direction: column;
-  align-items: center;
+  padding: 15px;
+
+  background: $white;
+  border-radius: 10px;
+  box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.2);
+
+  &__comments {
+    margin-top: 15px;
+  }
+  &__comments-title {
+    margin-bottom: 10px;
+  }
+}
+
+// FORM CONTROL
+.form__control {
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+
+  &-nickname {
+    &.error {
+      border: 3px solid $danger;
+    }
+    &.success {
+      border: 3px solid $green;
+    }
+  }
+
+  &-name {
+    margin-top: 10px;
+    &.error {
+      border: 3px solid $danger;
+    }
+    &.success {
+      border: 3px solid $green;
+    }
+  }
+
+  &-area {
+    margin: 10px 0;
+    &.error {
+      border: 3px solid $danger;
+    }
+    &.success {
+      border: 3px solid $green;
+    }
+  }
+}
+.inputAndArea {
+  width: 100%;
+  padding: 10px 20px;
+  display: block;
+  outline: none;
+
+  border: 2px solid $bd;
+  border-radius: 3px;
+
+  font-size: 16px;
+  color: $primary;
+}
+
+// COMMENT
+.comment {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px 20px;
+
+  border: 2px solid $bd;
+
+  color: $primary;
 }
