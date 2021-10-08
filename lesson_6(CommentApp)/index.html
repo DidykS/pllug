@@ -16,6 +16,39 @@
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
+    <!-- container -->
+    <div class="container">
+      <div class="app">
+        <h1 class="app__title">My Comments App</h1>
+
+        <form action="" class="form__control">
+          <input
+            id="form__control__nickname"
+            type="text"
+            placeholder="Your nickname"
+          />
+          <input id="form__control__name" type="text" placeholder="Your name" />
+          <button id="btn" class="btn" type="submit">Add Comment</button>
+        </form>
+
+        <div class="app__comments">
+          <h2 class="app__comments-title">Your Comments</h2>
+          <hr />
+          <div id="comments">
+            <div class="comment">
+              <div class="comment__header">
+                <span>NickName</span> - <span>Name</span>
+              </div>
+              <p class="comment__content">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta,
+                dolor.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- JavaScript -->
     <script src="assets/js/app.js"></script>
   </body>
