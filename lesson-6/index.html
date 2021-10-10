@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Comment App</title>
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <!-- container -->
+    <div class="container">
+      <!-- app -->
+      <div class="app">
+        <h1 class="app__title">Comments App</h1>
+        <!-- form -->
+        <form id="form" action="" class="form__control">
+          <div class="form__group">
+            <input
+              id="form__nickname"
+              class="form__control-nickname inputAndArea clear"
+              type="text"
+              placeholder="Your nickname"
+            />
+            <small class="error__text">Error message!</small>
+          </div>
+          <div class="form__group">
+            <input
+              id="form__name"
+              class="form__control-name inputAndArea clear"
+              type="text"
+              placeholder="Your name"
+            />
+            <small class="error__text">Error message!</small>
+          </div>
+          <div class="form__group">
+            <textarea
+              name="area"
+              id="form__area"
+              class="form__control-area inputAndArea clear"
+              placeholder="Your comment"
+            ></textarea>
+            <small class="error__text">Error message!</small>
+          </div>
+        </form>
+        <!-- /form -->
+        <button id="btn" class="btn green" type="submit">Add Comment</button>
+        <!-- app__comments -->
+        <div class="app__comments">
+          <h2 class="app__comments-title">Your Comments</h2>
+          <div id="comments" class="comments"></div>
+        </div>
+        <!-- /app__comments -->
+      </div>
+      <!-- /app -->
+    </div>
+    <!-- /container -->
+
+    <!-- JavaScript -->
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>
