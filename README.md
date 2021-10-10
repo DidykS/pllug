@@ -2,4 +2,4 @@
 
 ---
 
-## [Watch it on Github Pages](<https://didyks.github.io/pllug/lesson6(CommentApp)>)
+## [Watch it on Github Pages](https://didyks.github.io/pllug/lesson6)
