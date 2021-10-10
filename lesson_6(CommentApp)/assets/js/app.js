@@ -9,24 +9,9 @@ const comments = document.querySelector('#comments');
 // create array with future comments
 const commentsArr = [];
 
-// only english words and numbers
-inputs.forEach((item) => {
-  item.addEventListener('keyup', (e) => {
-    item.value = item.value.replace(/[А-Яа-я]/g, '');
-  });
-});
-
-// check for blank fields
-form.addEventListener(`input`, (e) => {
-  if (isValidFields()) {
-    btn.style.display = 'block';
-  } else {
-    btn.style.display = 'none';
-  }
-});
-
 // check nickName
-nickName.addEventListener('input', (e) => {
+nickName.addEventListener('input', () => {
+  nickName.value = nickName.value.replace(/[^A-Za-z0-9]/gi, '');
   const target = nickName.value.trim();
 
   if (isEmptyField(target)) {
@@ -49,6 +34,7 @@ nickName.addEventListener('input', (e) => {
 
 // check $name
 $name.addEventListener('input', (e) => {
+  $name.value = $name.value.replace(/[^A-Za-z]/gi, '');
   const target = $name.value.trim();
 
   if (isEmptyField(target)) {
@@ -64,8 +50,11 @@ $name.addEventListener('input', (e) => {
   }
 });
 
+// check textarea
 area.addEventListener('input', (e) => {
   const target = area.value.trim();
+  area.value = area.value.replace(/[^A-Za-z.,!?-\s]/gi, '');
+
   if (isEmptyField(target)) {
     setSuccess(area);
 
@@ -79,7 +68,16 @@ area.addEventListener('input', (e) => {
   }
 });
 
-// event for saving comment
+// check for blank fields
+form.addEventListener(`input`, (e) => {
+  if (isValidFields()) {
+    btn.style.display = 'block';
+  } else {
+    btn.style.display = 'none';
+  }
+});
+
+// add comment
 btn.addEventListener('click', (e) => {
   let comment = {
     nickName: nickName.value.trim(),
