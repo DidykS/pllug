@@ -46,21 +46,20 @@ a {
 }
 
 .btn {
-  color: #42b983;
-  place-content: center;
-  place-items: center;
-  width: fit-content;
-  border-radius: 99px;
-  letter-spacing: 0.05em;
-  border: 1px solid #42b983;
-  text-decoration: none;
-  text-transform: uppercase;
   margin-right: 10px;
-  padding: 0.5rem 1.5rem;
+  padding: 7px 20px;
+  width: fit-content;
+
+  background: $white;
+  border-radius: 99px;
+  border: 1px solid #42b983;
+
+  color: #42b983;
+  text-transform: uppercase;
   white-space: nowrap;
   font-weight: 700;
   outline: none;
-  background: $white;
+
   transition: all 0.22s;
 }
 
@@ -114,10 +113,38 @@ a {
   box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.2);
 
   &__comments {
-    margin-top: 15px;
-  }
-  &__comments-title {
-    margin-bottom: 10px;
+    margin-top: 10px;
+    &-title {
+      margin-bottom: 10px;
+    }
+
+    & .comment {
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 10px 20px;
+
+      border: 2px solid $bd;
+      color: $primary;
+
+      &__header {
+        display: flex;
+        justify-content: space-between;
+
+        margin-bottom: 10px;
+
+        font-size: 20px;
+        font-weight: 500;
+
+        &-date {
+          font-size: 15px;
+        }
+      }
+
+      &__content {
+        margin-bottom: 15px;
+        font-size: 17px;
+      }
+    }
   }
 }
 
@@ -127,35 +154,33 @@ a {
   display: flex;
   flex-direction: column;
 
-  &-nickname {
+  & .form__group {
+    margin-bottom: 15px;
+    position: relative;
     &.error {
-      border: 3px solid $danger;
+      input {
+        border: 3px solid $danger;
+      }
+      textarea {
+        border: 3px solid $danger;
+      }
+      .error__text {
+        visibility: visible;
+      }
     }
     &.success {
-      border: 3px solid $green;
-    }
-  }
+      input {
+        border: 3px solid $green;
+      }
 
-  &-name {
-    margin-top: 10px;
-    &.error {
-      border: 3px solid $danger;
-    }
-    &.success {
-      border: 3px solid $green;
-    }
-  }
-
-  &-area {
-    margin: 10px 0;
-    &.error {
-      border: 3px solid $danger;
-    }
-    &.success {
-      border: 3px solid $green;
+      textarea {
+        border: 3px solid $green;
+      }
     }
   }
 }
+
+// INPUTS AND TEXTAREA
 .inputAndArea {
   width: 100%;
   padding: 10px 20px;
@@ -169,13 +194,30 @@ a {
   color: $primary;
 }
 
-// COMMENT
-.comment {
-  width: 100%;
-  margin-bottom: 10px;
-  padding: 10px 20px;
+// ERROR TEXT
+.error__text {
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+  margin-left: 10px;
 
-  border: 2px solid $bd;
+  visibility: hidden;
 
-  color: $primary;
+  font-weight: 700;
+  color: $danger;
+}
+
+// NOTIFICATION
+.notification {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+
+  background-color: $white;
+  border-radius: 5px;
+  padding: 16px 32px;
+  margin: 8px;
+
+  font-size: 20px;
+  color: $green;
 }
