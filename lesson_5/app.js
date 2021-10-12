@@ -86,6 +86,8 @@ function createLsstLi() {
 
 createLsstLi();
 
+//одрукувався, припускаю, що мало бути createLаstLi
+
 /* Task 2 */
 function newUl() {
   const birds = document.querySelector('#birds');
@@ -103,6 +105,9 @@ function newUl() {
 }
 
 newUl();
+
+// логічніше було б спочатку додати в fish елемент shark, а потім вже додавати список fish на сторінку імхо
+// не є помилкою, якщо раптом що
 
 /* Task 3 */
 function reverseElements() {
@@ -131,3 +136,6 @@ function changeClassToDataAttribute() {
 changeClassToDataAttribute();
 
 // Щоб підкрасити всі нові елементи з класом dangerous червоним потрібно функцію changeColor2 викликати тут.
+
+
+// Все гуд, по п'ятому таску серйозних зауважень нема
