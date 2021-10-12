@@ -1,7 +1,7 @@
 const form = document.querySelector('#form');
 const inputs = document.querySelectorAll('.inputAndArea');
 const nickName = document.querySelector('#form__nickname');
-const $name = document.querySelector('.form__control-name');
+const $name = document.querySelector('.form__control-name'); //вибивається по неймінгу з усіх інших змінних
 const area = document.querySelector('#form__area');
 const btn = document.querySelector('#btn');
 const comments = document.querySelector('#comments');
@@ -13,6 +13,19 @@ const commentsArr = [];
 nickName.addEventListener('input', () => {
   nickName.value = nickName.value.replace(/[^A-Za-z0-9]/gi, '');
   const target = nickName.value.trim();
+
+  // ліпше порефакторити весь блок if-else. У тебе тут 3 рази підряд юзається функція setSuccess()
+  // Можна просто замінити на щось типу цього, щоб ліпше читалося
+
+  // if (isEmptyField(target) && isValidLength(target, 'nickName') && isValidCharacter(target)) {
+  //   setSuccess(nickName);
+  // } else {
+  //   if (!isValidCharacter(target)) setError(nickName, 'Must be at least one letter');
+  //   if (!isValidLength(target)) setError(nickName, 'Need minimum 3 characters');
+  //   if (!isEmptyField(target)) setError(nickName, 'Field cannot be empty');
+  // }
+
+  // і в наступних функціях так само варто порефакторити
 
   if (isEmptyField(target)) {
     setSuccess(nickName);
@@ -177,6 +190,18 @@ function isEmptyField(target) {
   return true;
 }
 
+// Трохи помилка в логіці. Назва isEmptyField вказує на те, що функція повертатиме true
+// саме коли поле пусте. Натомість, в цьому випадку вона повертає false. Ліпше або виправити логіку
+// всередині неї, або ж перейментувати на щось типу isNotEmptyField
+// крім того, весь код можна замінити функцією типу наступної
+
+function isEmptyFieldExample1(target) {
+  return target.length === 0;
+}
+
+//або ж взагалі так:
+const isEmptyFieldExample2 = target => target.length === 0;
+
 // isValidLength function
 function isValidLength(target, value) {
   if (value === 'nickName') {
@@ -223,8 +248,19 @@ function isValidFields() {
   return false;
 }
 
+// можна просто замінити на функцію
+
+function isValidFieldsExample() {
+  return (
+    nickName.parentNode.classList.contains('success') &&
+    $name.parentNode.classList.contains('success') &&
+    area.parentNode.classList.contains('success')
+  );
+}
+
 // add comment notification
 function createNotifeAdd() {
+  //не варто скорочувати назви змінних, ліпше буде повністю написати notification
   const notif = document.createElement('div');
   notif.innerHTML += '<span>Comment was added</span>';
   notif.classList.add('notification');
@@ -249,3 +285,4 @@ function createNotifeDel() {
     notif.remove();
   }, 1500);
 }
+// взагалі незрозуміла назва функції
