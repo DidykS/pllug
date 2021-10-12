@@ -14,8 +14,9 @@ body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
+  font-weight: 500;
   background-color: #ffffff;
-  color: #8d8da5;
+  color: #ffffff;
 }
 
 h1,
@@ -42,6 +43,60 @@ a {
   width: 100%;
   max-width: 1170px;
   margin: 0 auto;
-  padding: 15px;
+  padding: 0 15px;
+}
+
+.main {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.main__preview {
+  padding: 0 10px;
+  width: 50%;
+  height: 100vh;
+  background: transparent url("../images/Mask Group 43.png") center center no-repeat;
+  background-size: cover;
+}
+
+.main__content {
+  margin-top: 90px;
+  margin-left: 80px;
+}
+
+.main__content--header {
+  font-family: 'Arimo', sans-serif;
+  text-transform: uppercase;
+  font-size: 50px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.main__content--header .red {
+  color: #e2222d;
+}
+
+.main__content--body {
+  width: 100%;
+  max-width: 730px;
+  margin-top: 115px;
+}
+
+.main__content--body--title {
+  display: block;
+  margin-bottom: 25px;
+  font-size: 24px;
+}
+
+.main__content--body--text {
+  font-size: 16px;
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+.main__form {
+  width: 50%;
 }
 /*# sourceMappingURL=style.css.map */
