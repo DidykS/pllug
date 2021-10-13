@@ -219,6 +219,15 @@ a {
 }
 
 @media (max-width: 768px) {
+  .main__preview {
+    padding: 20px;
+  }
+
+  .main__content {
+    margin: 0;
+    padding: 0;
+  }
+
   .main__field {
     max-width: 350px;
   }
@@ -237,5 +246,44 @@ a {
 
   .link-btn {
     margin-top: 15px;
+  }
+}
+
+@media (max-width: 576px) {
+  .main__preview {
+    width: 100%;
+  }
+
+  .main__form {
+    width: 100%;
+  }
+
+  .main__content {
+    &--header {
+      font-size: 45px;
+    }
+
+    &--body {
+      margin-top: 50px;
+
+      &--title {
+        font-size: 20px;
+      }
+
+      &--text {
+        font-size: 13px;
+      }
+    }
+  }
+  .main__field {
+    max-width: 450px;
+  }
+
+  .main__field--title {
+    margin-bottom: 25px;
+  }
+
+  .field__form--group label {
+    margin-bottom: 5px;
   }
 }
