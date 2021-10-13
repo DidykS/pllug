@@ -1,0 +1,284 @@
+// VARIABLES
+$white: #ffffff;
+$placeholder: #8d8da5;
+$label: #181c32;
+$red: #e2222d;
+$border: #dbdfeb;
+
+/* MAIN STYLES */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  background-color: $white;
+  color: $white;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* CONTAINER */
+.container {
+  width: 100%;
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+// BTN
+.btn {
+  display: inline-block;
+  padding: 15px 55px;
+
+  border: 0;
+  border-radius: 8px;
+  background-color: $red;
+
+  color: $white;
+
+  cursor: pointer;
+
+  transition: background-color 0.2s linear;
+
+  &:hover {
+    background-color: darken($color: $red, $amount: 6);
+  }
+}
+
+// LINK
+.link {
+  font-weight: 500;
+  font-size: 13px;
+  color: $label;
+  text-decoration: underline;
+
+  &-btn {
+    display: block;
+    margin-top: 25px;
+  }
+}
+
+// MAIN
+.main {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+
+  // MAIN__PREVIEW
+  &__preview {
+    padding: 0 10px;
+    width: 50%;
+    height: 100vh;
+
+    background: transparent url('../images/Mask\ Group\ 43.png') center center
+      no-repeat;
+    background-size: cover;
+  }
+
+  // MAIN__CONTENT
+  &__content {
+    padding: 10px;
+    margin-top: 80px;
+    margin-left: 70px;
+
+    &--header {
+      font-family: 'Arimo', sans-serif;
+      text-transform: uppercase;
+      font-size: 50px;
+      font-weight: 500;
+      color: $white;
+
+      & .red {
+        color: $red;
+      }
+    }
+
+    &--body {
+      width: 100%;
+      max-width: 730px;
+      margin-top: 115px;
+
+      &--title {
+        display: block;
+        margin-bottom: 25px;
+
+        font-size: 24px;
+      }
+
+      &--text {
+        font-weight: 400;
+        opacity: 0.8;
+      }
+    }
+  }
+
+  // MAIN__FORM
+  &__form {
+    width: 50%;
+    height: 100vh;
+    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    color: $placeholder;
+  }
+
+  &__field {
+    width: 100%;
+    max-width: 450px;
+
+    &--title {
+      margin-bottom: 45px;
+
+      font-size: 36px;
+      font-weight: 500;
+    }
+  }
+}
+
+// FIELD__FORM
+.field__form {
+  &--group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 15px 0 15px 0;
+
+    & label {
+      margin-bottom: 10px;
+      font-size: 13px;
+      color: $label;
+    }
+
+    & input {
+      height: 50px;
+      width: 100%;
+      padding: 15px;
+
+      outline: none;
+      border: 1px solid $border;
+      border-radius: 8px;
+
+      font-size: 13px;
+      font-weight: 400;
+      color: $placeholder;
+    }
+  }
+
+  &--button {
+    margin-top: 35px;
+    text-align: center;
+  }
+
+  &--forgot {
+    text-align: right;
+  }
+}
+
+/* media requests */
+@media (max-width: 992px) {
+  .main__content {
+    margin-top: 30px;
+    margin-left: 20px;
+  }
+
+  .main__field {
+    max-width: 450px;
+  }
+}
+
+@media (max-width: 768px) {
+  .main__preview {
+    padding: 20px;
+  }
+
+  .main__content {
+    margin: 0;
+    padding: 0;
+  }
+
+  .main__form {
+    padding: 20px;
+  }
+
+  .main__field--title {
+    margin-bottom: 35px;
+  }
+
+  .field__form--group {
+    padding: 10px 0 10px 0;
+  }
+
+  .field__form--button {
+    margin-top: 25px;
+  }
+
+  .link-btn {
+    margin-top: 15px;
+  }
+}
+
+@media (max-width: 576px) {
+  .main__preview {
+    width: 100%;
+  }
+
+  .main__form {
+    width: 100%;
+  }
+
+  .main__content {
+    &--header {
+      font-size: 45px;
+    }
+
+    &--body {
+      margin-top: 50px;
+
+      &--title {
+        font-size: 20px;
+      }
+
+      &--text {
+        font-size: 13px;
+      }
+    }
+  }
+
+  .main__field--title {
+    margin-bottom: 25px;
+  }
+
+  .field__form--group label {
+    margin-bottom: 5px;
+  }
+}
