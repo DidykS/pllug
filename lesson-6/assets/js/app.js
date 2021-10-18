@@ -17,7 +17,7 @@ nickName.addEventListener('input', () => {
   // ліпше порефакторити весь блок if-else. У тебе тут 3 рази підряд юзається функція setSuccess()
   // Можна просто замінити на щось типу цього, щоб ліпше читалося
 
-  // if (isEmptyField(target) && isValidLength(target, 'nickName') && isValidCharacter(target)) {
+  // if (isNotEmptyField(target) && isValidLength(target, 'nickName') && isValidCharacter(target)) {
   //   setSuccess(nickName);
   // } else {
   //   if (!isValidCharacter(target)) setError(nickName, 'Must be at least one letter');
@@ -27,7 +27,8 @@ nickName.addEventListener('input', () => {
 
   // і в наступних функціях так само варто порефакторити
 
-  if (isEmptyField(target)) {
+  // My first decision:
+  /* if (isNotEmptyField(target)) {
     setSuccess(nickName);
 
     if (isValidLength(target, 'nickName')) {
@@ -42,6 +43,21 @@ nickName.addEventListener('input', () => {
     }
   } else {
     setError(nickName, 'Field cannot be empty');
+  } */
+
+  // Refactor:
+  if (
+    isNotEmptyField(target) &&
+    isValidLength(target, 'nickName') &&
+    isValidCharacter(target)
+  ) {
+    setSuccess(nickName);
+  } else {
+    if (!isValidCharacter(target))
+      setError(nickName, 'Must be at least one letter');
+    if (!isValidLength(target, 'nickName'))
+      setError(nickName, 'Need minimum 3 characters');
+    if (!isNotEmptyField(target)) setError(nickName, 'Field cannot be empty');
   }
 });
 
@@ -50,7 +66,8 @@ $name.addEventListener('input', (e) => {
   $name.value = $name.value.replace(/[^A-Za-z]/gi, '');
   const target = $name.value.trim();
 
-  if (isEmptyField(target)) {
+  // My first decision:
+  /* if (isEmptyField(target)) {
     setSuccess($name);
 
     if (isValidLength(target, '$name')) {
@@ -60,6 +77,15 @@ $name.addEventListener('input', (e) => {
     }
   } else {
     setError($name, 'Field cannot be empty');
+  } */
+
+  // Refactor:
+  if (isNotEmptyField(target) && isValidLength(target, '$name')) {
+    setSuccess($name);
+  } else {
+    if (!isValidLength(target, '$name'))
+      setError($name, 'Maximum 100 characters');
+    if (!isNotEmptyField(target)) setError($name, 'Field cannot be empty');
   }
 });
 
@@ -68,7 +94,8 @@ area.addEventListener('input', (e) => {
   const target = area.value.trim();
   area.value = area.value.replace(/[^A-Za-z.,!?-\s]/gi, '');
 
-  if (isEmptyField(target)) {
+  // My first decision:
+  /* if (isNotEmptyField(target)) {
     setSuccess(area);
 
     if (isValidLength(target, 'area')) {
@@ -78,6 +105,15 @@ area.addEventListener('input', (e) => {
     }
   } else {
     setError(area, 'Field cannot be empty');
+  } */
+
+  // Refactor:
+  if (isNotEmptyField(target) && isValidLength(target, 'area')) {
+    setSuccess(area);
+  } else {
+    if (!isValidLength(target, 'area'))
+      setError(area, 'Maximum 1000 characters');
+    if (!isNotEmptyField(target)) setError(area, 'Field cannot be empty');
   }
 });
 
@@ -111,7 +147,7 @@ btn.addEventListener('click', (e) => {
   // show comments
   showComment();
   // create notification
-  createNotifeAdd();
+  createNotificationForAdd();
   // clean fields
   clear();
 });
@@ -150,7 +186,7 @@ comments.addEventListener('click', (e) => {
 // deleteComment function
 function deleteComment(idx) {
   commentsArr.splice(idx, 1);
-  createNotifeDel();
+  createNotificationForDelete();
 }
 
 // setError
@@ -181,8 +217,8 @@ function clear() {
   });
 }
 
-// isEmptyField function
-function isEmptyField(target) {
+// isNotEmptyField function
+function isNotEmptyField(target) {
   if (target.length === 0) {
     return false;
   }
@@ -195,12 +231,12 @@ function isEmptyField(target) {
 // всередині неї, або ж перейментувати на щось типу isNotEmptyField
 // крім того, весь код можна замінити функцією типу наступної
 
-function isEmptyFieldExample1(target) {
+/* function isEmptyFieldExample1(target) {
   return target.length === 0;
-}
+} */
 
 //або ж взагалі так:
-const isEmptyFieldExample2 = target => target.length === 0;
+/* const isEmptyFieldExample2 = (target) => target.length === 0; */
 
 // isValidLength function
 function isValidLength(target, value) {
@@ -237,7 +273,8 @@ function isValidCharacter(target) {
 }
 
 // isValidFields function
-function isValidFields() {
+// My first decision
+/* function isValidFields() {
   if (
     nickName.parentNode.classList.contains('success') &&
     $name.parentNode.classList.contains('success') &&
@@ -246,11 +283,10 @@ function isValidFields() {
     return true;
   }
   return false;
-}
+} */
 
-// можна просто замінити на функцію
-
-function isValidFieldsExample() {
+// Refactor:
+function isValidFields() {
   return (
     nickName.parentNode.classList.contains('success') &&
     $name.parentNode.classList.contains('success') &&
@@ -258,8 +294,18 @@ function isValidFieldsExample() {
   );
 }
 
+// можна просто замінити на функцію
+
+/* function isValidFieldsExample() {
+  return (
+    nickName.parentNode.classList.contains('success') &&
+    $name.parentNode.classList.contains('success') &&
+    area.parentNode.classList.contains('success')
+  );
+} */
+
 // add comment notification
-function createNotifeAdd() {
+function createNotificationForAdd() {
   //не варто скорочувати назви змінних, ліпше буде повністю написати notification
   const notif = document.createElement('div');
   notif.innerHTML += '<span>Comment was added</span>';
@@ -273,7 +319,7 @@ function createNotifeAdd() {
 }
 
 // delete comment notification
-function createNotifeDel() {
+function createNotificationForDelete() {
   const notif = document.createElement('div');
   notif.innerHTML += '<span>Comment was deleted</span>';
   notif.classList.add('notification');
