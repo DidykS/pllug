@@ -14,6 +14,8 @@ nickName.addEventListener('input', () => {
   nickName.value = nickName.value.replace(/[^A-Za-z0-9]/gi, '');
   const target = nickName.value.trim();
 
+  // =====================================================================================================================================================================================
+
   // ліпше порефакторити весь блок if-else. У тебе тут 3 рази підряд юзається функція setSuccess()
   // Можна просто замінити на щось типу цього, щоб ліпше читалося
 
@@ -26,6 +28,8 @@ nickName.addEventListener('input', () => {
   // }
 
   // і в наступних функціях так само варто порефакторити
+
+  // =====================================================================================================================================================================================
 
   // My first decision:
   /* if (isNotEmptyField(target)) {
@@ -48,15 +52,17 @@ nickName.addEventListener('input', () => {
   // Refactor:
   if (
     isNotEmptyField(target) &&
-    isValidLength(target, 'nickName') &&
+    isValidMinLength(target) &&
+    isValidMaxLength(target, 'nickName') &&
     isValidCharacter(target)
   ) {
     setSuccess(nickName);
   } else {
     if (!isValidCharacter(target))
       setError(nickName, 'Must be at least one letter');
-    if (!isValidLength(target, 'nickName'))
-      setError(nickName, 'Need minimum 3 characters');
+    if (!isValidMinLength(target)) setError(nickName, 'Minimum 3 characters');
+    if (!isValidMaxLength(target, 'nickName'))
+      setError(nickName, 'Maximum 24 characters');
     if (!isNotEmptyField(target)) setError(nickName, 'Field cannot be empty');
   }
 });
@@ -80,10 +86,15 @@ $name.addEventListener('input', (e) => {
   } */
 
   // Refactor:
-  if (isNotEmptyField(target) && isValidLength(target, '$name')) {
+  if (
+    isNotEmptyField(target) &&
+    isValidMinLength(target) &&
+    isValidMaxLength(target, '$name')
+  ) {
     setSuccess($name);
   } else {
-    if (!isValidLength(target, '$name'))
+    if (!isValidMinLength(target)) setError($name, 'Minimum 3 characters');
+    if (!isValidMaxLength(target, '$name'))
       setError($name, 'Maximum 100 characters');
     if (!isNotEmptyField(target)) setError($name, 'Field cannot be empty');
   }
@@ -108,10 +119,15 @@ area.addEventListener('input', (e) => {
   } */
 
   // Refactor:
-  if (isNotEmptyField(target) && isValidLength(target, 'area')) {
+  if (
+    isNotEmptyField(target) &&
+    isValidMinLength(target) &&
+    isValidMaxLength(target, 'area')
+  ) {
     setSuccess(area);
   } else {
-    if (!isValidLength(target, 'area'))
+    if (!isValidMinLength(target)) setError(area, 'Minimum 3 characters');
+    if (!isValidMaxLength(target, 'area'))
       setError(area, 'Maximum 1000 characters');
     if (!isNotEmptyField(target)) setError(area, 'Field cannot be empty');
   }
@@ -226,6 +242,8 @@ function isNotEmptyField(target) {
   return true;
 }
 
+// =====================================================================================================================================================================================
+
 // Трохи помилка в логіці. Назва isEmptyField вказує на те, що функція повертатиме true
 // саме коли поле пусте. Натомість, в цьому випадку вона повертає false. Ліпше або виправити логіку
 // всередині неї, або ж перейментувати на щось типу isNotEmptyField
@@ -238,22 +256,57 @@ function isNotEmptyField(target) {
 //або ж взагалі так:
 /* const isEmptyFieldExample2 = (target) => target.length === 0; */
 
-// isValidLength function
-function isValidLength(target, value) {
+// =====================================================================================================================================================================================
+
+// isValidMinLength function
+// My first decision:
+/* function isValidMinLength(target, value) {
   if (value === 'nickName') {
-    if (target.length >= 3 && target.length <= 24) {
+    if (target.length >= 3) {
       return true;
     }
   }
 
   if (value === '$name') {
-    if (target.length >= 1 && target.length <= 100) {
+    if (target.length >= 3) {
       return true;
     }
   }
 
   if (value === 'area') {
-    if (target.length >= 1 && target.length <= 1000) {
+    if (target.length >= 3) {
+      return true;
+    }
+  }
+
+  return false;
+} */
+
+// Refactor:
+function isValidMinLength(target) {
+  if (target.length >= 3) {
+    return true;
+  }
+
+  return false;
+}
+
+// isValidMaxLength
+function isValidMaxLength(target, value) {
+  if (value === 'nickName') {
+    if (target.length <= 24) {
+      return true;
+    }
+  }
+
+  if (value === '$name') {
+    if (target.length <= 100) {
+      return true;
+    }
+  }
+
+  if (value === 'area') {
+    if (target.length <= 1000) {
       return true;
     }
   }
@@ -294,8 +347,8 @@ function isValidFields() {
   );
 }
 
+// =====================================================================================================================================================================================
 // можна просто замінити на функцію
-
 /* function isValidFieldsExample() {
   return (
     nickName.parentNode.classList.contains('success') &&
@@ -303,6 +356,8 @@ function isValidFields() {
     area.parentNode.classList.contains('success')
   );
 } */
+
+// =====================================================================================================================================================================================
 
 // add comment notification
 function createNotificationForAdd() {
@@ -331,4 +386,9 @@ function createNotificationForDelete() {
     notif.remove();
   }, 1500);
 }
+
+// =====================================================================================================================================================================================
+
 // взагалі незрозуміла назва функції
+
+// =====================================================================================================================================================================================
