@@ -1,0 +1,46 @@
+// VARIABLES
+$white: #ffffff;
+$black: #000;
+$gray: #808080;
+$blue: #87cefa;
+$red: #e2222d;
+$green: #008000;
+$text: #181c32;
+$pink: #df445c;
+$card: #704b00;
+
+/* MAIN STYLES */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+
+  font-family: 'Roboto Slab', serif;
+  text-align: center;
+  color: $white;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  font-weight: 500;
+}
