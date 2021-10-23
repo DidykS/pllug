@@ -6,32 +6,39 @@ const input = document.querySelector('.board__input');
 const movesHtml = document.querySelector('#moves');
 const timeHtml = document.querySelector('#time');
 
+const modal = document.querySelector('.modal');
+const modalContent = document.querySelector('.modal__content');
+const modalInfo = document.querySelector('.modal__info');
+
+const tryAgain = document.querySelector('.btn--try');
+const leaveGame = document.querySelector('.btn--rest');
+
 // cards array
 const cards = [
   { name: 'star', img: '<i class="fas fa-star"></i>' },
   { name: 'star', img: '<i class="fas fa-star"></i>' },
-  { name: 'sun', img: '<i class="fas fa-sun"></i>' },
-  { name: 'sun', img: '<i class="fas fa-sun"></i>' },
-  { name: 'chess', img: '<i class="fas fa-chess"></i>' },
-  { name: 'chess', img: '<i class="fas fa-chess"></i>' },
-  { name: 'dice', img: '<i class="fas fa-dice"></i>' },
-  { name: 'dice', img: '<i class="fas fa-dice"></i>' },
-  { name: 'stroopwafel', img: '<i class="fas fa-stroopwafel"></i>' },
-  { name: 'stroopwafel', img: '<i class="fas fa-stroopwafel"></i>' },
-  { name: 'dice-d20', img: '<i class="fas fa-dice-d20"></i>' },
-  { name: 'dice-d20', img: '<i class="fas fa-dice-d20"></i>' },
-  { name: 'cloud', img: '<i class="fas fa-cloud"></i>' },
-  { name: 'cloud', img: '<i class="fas fa-cloud"></i>' },
-  { name: 'umbrella', img: '<i class="fas fa-umbrella"></i>' },
-  { name: 'umbrella', img: '<i class="fas fa-umbrella"></i>' },
-  { name: 'anchor', img: '<i class="fas fa-anchor"></i>' },
-  { name: 'anchor', img: '<i class="fas fa-anchor"></i>' },
-  { name: 'phoenix', img: '<i class="fab fa-phoenix-squadron"></i>' },
-  { name: 'phoenix', img: '<i class="fab fa-phoenix-squadron"></i>' },
-  { name: 'square', img: '<i class="fas fa-square-full"></i>' },
-  { name: 'square', img: '<i class="fas fa-square-full"></i>' },
-  { name: 'jedi', img: '<i class="fas fa-jedi"></i>' },
-  { name: 'jedi', img: '<i class="fas fa-jedi"></i>' },
+  // { name: 'sun', img: '<i class="fas fa-sun"></i>' },
+  // { name: 'sun', img: '<i class="fas fa-sun"></i>' },
+  // { name: 'chess', img: '<i class="fas fa-chess"></i>' },
+  // { name: 'chess', img: '<i class="fas fa-chess"></i>' },
+  // { name: 'dice', img: '<i class="fas fa-dice"></i>' },
+  // { name: 'dice', img: '<i class="fas fa-dice"></i>' },
+  // { name: 'stroopwafel', img: '<i class="fas fa-stroopwafel"></i>' },
+  // { name: 'stroopwafel', img: '<i class="fas fa-stroopwafel"></i>' },
+  // { name: 'dice-d20', img: '<i class="fas fa-dice-d20"></i>' },
+  // { name: 'dice-d20', img: '<i class="fas fa-dice-d20"></i>' },
+  // { name: 'cloud', img: '<i class="fas fa-cloud"></i>' },
+  // { name: 'cloud', img: '<i class="fas fa-cloud"></i>' },
+  // { name: 'umbrella', img: '<i class="fas fa-umbrella"></i>' },
+  // { name: 'umbrella', img: '<i class="fas fa-umbrella"></i>' },
+  // { name: 'anchor', img: '<i class="fas fa-anchor"></i>' },
+  // { name: 'anchor', img: '<i class="fas fa-anchor"></i>' },
+  // { name: 'phoenix', img: '<i class="fab fa-phoenix-squadron"></i>' },
+  // { name: 'phoenix', img: '<i class="fab fa-phoenix-squadron"></i>' },
+  // { name: 'square', img: '<i class="fas fa-square-full"></i>' },
+  // { name: 'square', img: '<i class="fas fa-square-full"></i>' },
+  // { name: 'jedi', img: '<i class="fas fa-jedi"></i>' },
+  // { name: 'jedi', img: '<i class="fas fa-jedi"></i>' },
 ];
 
 // Variables for game
@@ -56,6 +63,72 @@ btn.addEventListener('click', () => {
   // generate card
   generateCard();
   // start time
+  startTime();
+});
+
+// leave the game
+leaveGame.addEventListener('click', () => {
+  boards[0].classList.remove('up');
+
+  document.querySelector('.modal__content').style.animation = 'animateEnd 0.5s';
+  closeModal();
+
+  input.value = '';
+
+  moves = 0;
+
+  minutes = 0;
+  seconds = 0;
+
+  wonCard = [];
+
+  movesHtml.innerHTML = `0`;
+  timeHtml.innerHTML = `00:00`;
+
+  gameBoard.innerHTML = '';
+
+  const boardCard = document.querySelectorAll('.game__card');
+  boardCard.forEach((item) => {
+    item.style.transform = 'rotateY(0deg)';
+    item.querySelector('.game__card--side').style.background =
+      '#704b00 url("https://cdn.discordapp.com/attachments/482233537026719746/896844303446462486/cardboard.png")';
+  });
+
+  boardCard.forEach((item) => {
+    item.style.animation = '';
+  });
+});
+
+// try again
+tryAgain.addEventListener('click', () => {
+  document.querySelector('.modal__content').style.animation = 'animateEnd 0.5s';
+  closeModal();
+
+  moves = 0;
+
+  minutes = 0;
+  seconds = 0;
+
+  wonCard = [];
+
+  movesHtml.innerHTML = `0`;
+  timeHtml.innerHTML = `00:00`;
+
+  gameBoard.innerHTML = '';
+
+  const boardCard = document.querySelectorAll('.game__card');
+  boardCard.forEach((item) => {
+    item.style.transform = 'rotateY(0deg)';
+    item.querySelector('.game__card--side').style.background =
+      '#704b00 url("https://cdn.discordapp.com/attachments/482233537026719746/896844303446462486/cardboard.png")';
+  });
+
+  boardCard.forEach((item) => {
+    item.style.animation = '';
+  });
+
+  generateCard();
+  generateDelayTime();
   startTime();
 });
 
@@ -142,8 +215,7 @@ function checkForMatch() {
   if (wonCard.length === cards.length / 2) {
     setTimeout(() => {
       modal.style.display = 'block';
-      document.querySelector('.modal__content').style.animation =
-        'animateStart 0.5s';
+      modalContent.style.animation = 'animateStart 0.5s';
     }, 500);
 
     modalInfo.innerHTML = `<span class="board__player">Player ${input.value}</span> won this game
@@ -191,6 +263,7 @@ function stopTime() {
   clearInterval(time);
 }
 
+// found math function
 function great() {
   const notif = document.createElement('div');
   notif.innerHTML += '<span>Great, you found a match</span>';
@@ -203,6 +276,7 @@ function great() {
   }, 1500);
 }
 
+// try again function
 function worse() {
   const notif = document.createElement('div');
   notif.innerHTML += '<span>Worse, try again</span>';
@@ -214,4 +288,11 @@ function worse() {
   setTimeout(() => {
     notif.remove();
   }, 1500);
+}
+
+// close modal
+function closeModal() {
+  setTimeout(() => {
+    modal.style.display = 'none';
+  }, 200);
 }

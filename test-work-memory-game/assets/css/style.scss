@@ -10,17 +10,11 @@ $pink: #df445c;
 $card: #704b00;
 
 /* MAIN STYLES */
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
 
 body {
   height: 100vh;
   margin: 0;
   overflow-x: hidden;
-
   font-family: 'Roboto Slab', serif;
   text-align: center;
   color: $white;
@@ -34,15 +28,6 @@ h5,
 h6 {
   margin: 0;
   padding: 0;
-}
-
-ul {
-  list-style: none;
-}
-
-a {
-  text-decoration: none;
-  font-weight: 500;
 }
 
 // BTN
@@ -140,6 +125,55 @@ a {
 }
 
 // GAME
+
+// .game__item,
+// .game__card,
+// .game__card--side {
+//   min-height: 100px;
+//   width: 150px;
+//   height: 210px;
+
+//   transition: all 0.5s linear;
+//   cursor: pointer;
+// }
+
+// .game__item {
+//   padding: 3px 3px;
+// }
+
+// .game {
+//   width: 100%;
+//   max-width: 1270px;
+//   margin: 0 auto;
+//   display: flex;
+//   flex-wrap: wrap;
+//   align-items: center;
+//   justify-content: center;
+
+//   &__card {
+//     position: relative;
+//     transform-style: preserve-3d;
+
+//     &--side {
+//       position: absolute;
+//       backface-visibility: hidden;
+//       display: flex;
+//       justify-content: center;
+//       align-items: center;
+//       flex-direction: column;
+
+//       background: $card;
+//       background-image: url('https://cdn.discordapp.com/attachments/482233537026719746/896844303446462486/cardboard.png');
+
+//       font-size: 50px;
+//       color: $black;
+//     }
+
+//     &--back {
+//       transform: rotateY(180deg);
+//     }
+//   }
+// }
 .game {
   width: 100%;
   max-width: 1270px;
@@ -148,63 +182,110 @@ a {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+}
 
-  .game__item,
-  .game__card,
-  .game__card--side {
-    min-height: 100px;
-    width: 150px;
-    height: 210px;
+.game__item,
+.game__card,
+.game__card--side {
+  min-height: 100px;
+  width: 150px;
+  height: 210px;
 
-    transition: all 0.5s linear;
-    cursor: pointer;
-  }
+  transition: all 0.5s linear;
+  cursor: pointer;
+}
 
-  &__item {
-    padding: 3px 3px;
-  }
+.game__item {
+  padding: 3px 3px;
+}
 
-  &__card {
+.game__card {
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.game__card--side {
+  background: #704b00;
+  background-image: url('https://cdn.discordapp.com/attachments/482233537026719746/896844303446462486/cardboard.png');
+  color: #000;
+  position: absolute;
+  backface-visibility: hidden;
+  font-size: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.game__card--back {
+  transform: rotateY(180deg);
+}
+
+// MODAL
+.modal {
+  width: 100%;
+  height: 100%;
+  display: none;
+  text-align: left;
+  position: fixed;
+  z-index: 100;
+
+  left: 0;
+  top: 0;
+
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.8);
+
+  &__content {
     position: relative;
-    transform-style: preserve-3d;
+    margin: 20% auto;
+    padding: 20px;
+    width: 40%;
+    z-index: 10000;
 
-    &--side {
-      position: absolute;
-      backface-visibility: hidden;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
+    border: 1px solid $gray;
+    background-color: $white;
 
-      background: $card;
-      background-image: url('https://cdn.discordapp.com/attachments/482233537026719746/896844303446462486/cardboard.png');
+    font-size: 25px;
+    font-weight: 500;
+    color: $text;
 
-      font-size: 50px;
-      color: $black;
-    }
+    animation: animateStart 0.5s;
+  }
 
-    &--back {
-      transform: rotateY(180deg);
-    }
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+
+  &__title {
+    font-size: 25px;
+    font-weight: 700;
+  }
+
+  &__buttons {
+    margin-top: 25px;
   }
 }
 
-// notification
+// NOTIFICATION
 .notification {
+  padding: 16px 32px;
+  margin: 8px;
   position: fixed;
   top: 50px;
   left: 50%;
 
   transform: translate(-50%, -50%);
 
-  background-color: #fff;
+  background-color: $white;
   border-radius: 5px;
-  box-shadow: 10px 5px 5px #333;
-  padding: 16px 32px;
-  margin: 8px;
+  box-shadow: 10px 5px 5px $gray;
 
   font-size: 20px;
-  color: green;
+  color: $green;
 }
 
 // ANIMATIONS
