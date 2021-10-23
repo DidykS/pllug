@@ -98,4 +98,40 @@ a {
   font-weight: 500;
   color: #181c32;
 }
+
+.board__info {
+  width: 50%;
+  margin-bottom: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.board__info--item {
+  position: relative;
+  padding: 25px 50px;
+  font-size: 35px;
+  font-weight: 700;
+  color: #181c32;
+  border: 5px solid #181c32;
+}
+
+.board__info--moves::before {
+  content: 'moves';
+  width: 100%;
+  position: absolute;
+  top: -50%;
+  left: 0;
+}
+
+.board__info--time::before {
+  content: 'time';
+  width: 100%;
+  position: absolute;
+  top: -50%;
+  left: 0;
+}
 /*# sourceMappingURL=style.css.map */

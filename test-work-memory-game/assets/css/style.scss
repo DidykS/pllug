@@ -82,6 +82,7 @@ a {
     margin-top: -100vh;
   }
 
+  // first board
   &--first {
     justify-content: flex-start;
   }
@@ -96,11 +97,44 @@ a {
     width: 25%;
 
     outline: none;
-    border: 1px solid #181c32;
+    border: 1px solid $text;
 
     border-radius: 8px;
     font-size: 16px;
     font-weight: 500;
-    color: #181c32;
+    color: $text;
+  }
+
+  // second board
+  &__info {
+    width: 50%;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+
+    &--item {
+      position: relative;
+      padding: 25px 50px;
+      font-size: 35px;
+      font-weight: 700;
+      color: $text;
+      border: 5px solid $text;
+    }
+
+    &--moves::before {
+      content: 'moves';
+      width: 100%;
+      position: absolute;
+      top: -50%;
+      left: 0;
+    }
+
+    &--time::before {
+      content: 'time';
+      width: 100%;
+      position: absolute;
+      top: -50%;
+      left: 0;
+    }
   }
 }

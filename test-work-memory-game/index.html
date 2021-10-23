@@ -21,7 +21,8 @@
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
-    <div class="board board--first">
+    <!-- board first--board -->
+    <div class="board board--first up">
       <img
         class="board__logo"
         src="https://fontmeme.com/permalink/211021/ff9bd4fe4b224c9f41816ac350315f30.png"
@@ -33,6 +34,17 @@
 
       <button class="btn">Start Game</button>
     </div>
+    <!-- board first board -->
+
+    <!-- board second--board -->
+    <div class="board board--second">
+      <div class="board__info">
+        <div id="moves" class="board__info--item board__info--moves">0</div>
+        <div id="time" class="board__info--item board__info--time">00:00</div>
+      </div>
+      <div id="game" class="game"></div>
+    </div>
+    <!-- board second--board -->
 
     <!-- JavaScript -->
     <script src="assets/js/app.js"></script>
