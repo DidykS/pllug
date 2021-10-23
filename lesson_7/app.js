@@ -88,17 +88,17 @@ console.timeEnd('Map');
 // Clear iteration with conversion
 let result4;
 console.time('Object');
-Object.entries(object).forEach(([key, value]) => (result4 = key));
+Object.entries(object).forEach(([key, value]) => (result4 = key)); // можна просто [key] якщо value не використовується
 console.timeEnd('Object');
 
 console.time('Object Without Prototype');
 Object.entries(objectWithoutPrototype).forEach(
-  ([key, value]) => (result4 = key)
+  ([key, value]) => (result4 = key) // лишнє value
 );
 console.timeEnd('Object Without Prototype');
 
 console.time('Map');
-Array.from(map).forEach(([key, value]) => (result4 = key));
+Array.from(map).forEach(([key, value]) => (result4 = key)); // лишнє value
 console.timeEnd('Map');
 
 /* Task 2 */
@@ -146,3 +146,5 @@ function MapToObject2(map) {
 }
 
 console.log(MapToObject2(map));
+
+// Файно!
