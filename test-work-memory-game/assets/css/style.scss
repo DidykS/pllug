@@ -15,6 +15,7 @@ body {
   height: 100vh;
   margin: 0;
   overflow-x: hidden;
+  overflow: hidden;
   font-family: 'Roboto Slab', serif;
   text-align: center;
   color: $white;
@@ -62,10 +63,6 @@ h6 {
   background-size: cover;
 
   transition: margin 0.5s ease-out;
-
-  &.up {
-    margin-top: -100vh;
-  }
 
   // first board
   &--first {
@@ -124,66 +121,11 @@ h6 {
   }
 }
 
-// GAME
-
-// .game__item,
-// .game__card,
-// .game__card--side {
-//   min-height: 100px;
-//   width: 150px;
-//   height: 210px;
-
-//   transition: all 0.5s linear;
-//   cursor: pointer;
-// }
-
-// .game__item {
-//   padding: 3px 3px;
-// }
-
-// .game {
-//   width: 100%;
-//   max-width: 1270px;
-//   margin: 0 auto;
-//   display: flex;
-//   flex-wrap: wrap;
-//   align-items: center;
-//   justify-content: center;
-
-//   &__card {
-//     position: relative;
-//     transform-style: preserve-3d;
-
-//     &--side {
-//       position: absolute;
-//       backface-visibility: hidden;
-//       display: flex;
-//       justify-content: center;
-//       align-items: center;
-//       flex-direction: column;
-
-//       background: $card;
-//       background-image: url('https://cdn.discordapp.com/attachments/482233537026719746/896844303446462486/cardboard.png');
-
-//       font-size: 50px;
-//       color: $black;
-//     }
-
-//     &--back {
-//       transform: rotateY(180deg);
-//     }
-//   }
-// }
-.game {
-  width: 100%;
-  max-width: 1270px;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
+.board.up {
+  margin-top: -100vh;
 }
 
+// GAME
 .game__item,
 .game__card,
 .game__card--side {
@@ -195,30 +137,42 @@ h6 {
   cursor: pointer;
 }
 
-.game__item {
-  padding: 3px 3px;
-}
-
-.game__card {
-  position: relative;
-  transform-style: preserve-3d;
-}
-
-.game__card--side {
-  background: #704b00;
-  background-image: url('https://cdn.discordapp.com/attachments/482233537026719746/896844303446462486/cardboard.png');
-  color: #000;
-  position: absolute;
-  backface-visibility: hidden;
-  font-size: 50px;
+.game {
+  width: 100%;
+  max-width: 1270px;
+  margin: 0 auto;
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
   align-items: center;
-  flex-direction: column;
-}
+  justify-content: center;
 
-.game__card--back {
-  transform: rotateY(180deg);
+  &__item {
+    padding: 3px 3px;
+  }
+
+  &__card {
+    position: relative;
+    transform-style: preserve-3d;
+
+    &--side {
+      position: absolute;
+      backface-visibility: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      background: $card;
+      background-image: url('https://cdn.discordapp.com/attachments/482233537026719746/896844303446462486/cardboard.png');
+
+      font-size: 50px;
+      color: $black;
+    }
+
+    &--back {
+      transform: rotateY(180deg);
+    }
+  }
 }
 
 // MODAL
