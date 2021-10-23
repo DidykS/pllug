@@ -134,4 +134,94 @@ a {
   top: -50%;
   left: 0;
 }
+
+.game {
+  width: 100%;
+  max-width: 1270px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.game__item, .game__card, .game__card--side {
+  min-height: 100px;
+  width: 150px;
+  height: 210px;
+  -webkit-transition: all 0.5s linear;
+  transition: all 0.5s linear;
+  cursor: pointer;
+}
+
+.game__item {
+  padding: 3px 3px;
+}
+
+.game__card {
+  position: relative;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+.game__card--side {
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background: #704b00;
+  background-image: url("https://cdn.discordapp.com/attachments/482233537026719746/896844303446462486/cardboard.png");
+  font-size: 50px;
+  color: #000;
+}
+
+.game__card--back {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+@-webkit-keyframes rotateCard {
+  20%,
+  90% {
+    -webkit-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+  }
+  0%,
+  100% {
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+  }
+}
+
+@keyframes rotateCard {
+  20%,
+  90% {
+    -webkit-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+  }
+  0%,
+  100% {
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+  }
+}
 /*# sourceMappingURL=style.css.map */

@@ -138,3 +138,66 @@ a {
     }
   }
 }
+
+// GAME
+.game {
+  width: 100%;
+  max-width: 1270px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+
+  &__item,
+  &__card,
+  &__card--side {
+    min-height: 100px;
+    width: 150px;
+    height: 210px;
+
+    transition: all 0.5s linear;
+    cursor: pointer;
+  }
+
+  &__item {
+    padding: 3px 3px;
+  }
+
+  &__card {
+    position: relative;
+    transform-style: preserve-3d;
+
+    &--side {
+      position: absolute;
+      backface-visibility: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      background: $card;
+      background-image: url('https://cdn.discordapp.com/attachments/482233537026719746/896844303446462486/cardboard.png');
+
+      font-size: 50px;
+      color: $black;
+    }
+
+    &--back {
+      transform: rotateY(180deg);
+    }
+  }
+}
+
+// ANIMATIONS
+@keyframes rotateCard {
+  20%,
+  90% {
+    transform: rotateY(180deg);
+  }
+
+  0%,
+  100% {
+    transform: rotateY(0deg);
+  }
+}
