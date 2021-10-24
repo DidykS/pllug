@@ -64,6 +64,8 @@ btn.addEventListener('click', () => {
   generateCard();
   // start time
   startTime();
+  // stop click
+  stopClick(4000);
 });
 
 // leave the game
@@ -180,7 +182,7 @@ function flipCard() {
   }
 
   if (chosenCard.length === 2) {
-    stopClick();
+    stopClick(1000);
     setTimeout(checkForMatch, 500);
   }
 }
@@ -237,7 +239,7 @@ function checkForMatch() {
 }
 
 // stop click function
-function stopClick() {
+function stopClick(delay) {
   const cardItem = document.querySelectorAll('.game__item');
   cardItem.forEach((item) => {
     item.style.pointerEvents = 'none';
@@ -246,7 +248,7 @@ function stopClick() {
     cardItem.forEach((item) => {
       item.style.pointerEvents = 'auto';
     });
-  }, 1000);
+  }, delay);
 }
 
 // generate delay function
