@@ -225,7 +225,9 @@ function checkForMatch() {
       modalContent.style.animation = 'animateStart 0.5s';
     }, 500);
 
-    modalInfo.innerHTML = `<span class="board__player">Player ${input.value}</span> won this game
+    modalInfo.innerHTML = `<span class="board__player">Player ${
+      input.value == '' ? 'unknown' : input.value
+    }</span> won the game
     <div>Your moves: ${moves}</div>
     <div>Your time: ${timeHtml.innerHTML}</div>
     `;
