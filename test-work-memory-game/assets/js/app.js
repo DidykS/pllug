@@ -191,7 +191,7 @@ function checkForMatch() {
   const first = chosenCardId[0];
   const second = chosenCardId[1];
 
-  if (chosenCard[0] === chosenCard[1]) {
+  if (chosenCard[0] === chosenCard[1] && first !== second) {
     greatNotification();
 
     gameCard[first].querySelector('.game__card--side').style.opacity = '0.6';
