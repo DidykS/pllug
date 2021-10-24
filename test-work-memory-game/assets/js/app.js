@@ -180,6 +180,7 @@ function flipCard() {
   }
 
   if (chosenCard.length === 2) {
+    stopClick();
     setTimeout(checkForMatch, 500);
   }
 }
@@ -228,6 +229,19 @@ function checkForMatch() {
 
     stopTime();
   }
+}
+
+// stop click function
+function stopClick() {
+  const cardItem = document.querySelectorAll('.game__item');
+  cardItem.forEach((item) => {
+    item.style.pointerEvents = 'none';
+  });
+  setTimeout(() => {
+    cardItem.forEach((item) => {
+      item.style.pointerEvents = 'auto';
+    });
+  }, 1000);
 }
 
 // generate delay function
