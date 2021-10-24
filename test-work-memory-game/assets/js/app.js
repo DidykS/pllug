@@ -194,7 +194,7 @@ function checkForMatch() {
   const secondCard = chosenCardId[1];
 
   if (chosenCard[0] === chosenCard[1] && firstCard !== secondCard) {
-    greatNotification();
+    // greatNotification();
 
     gameCard[firstCard].querySelector('.game__card--side').style.opacity =
       '0.6';
@@ -210,7 +210,7 @@ function checkForMatch() {
 
     wonCard.push(chosenCard);
   } else {
-    wrongNotification();
+    // wrongNotification();
     gameCard[firstCard].style.transform = 'rotateY(0deg)';
     gameCard[secondCard].style.transform = 'rotateY(0deg)';
   }
@@ -287,32 +287,32 @@ function stopTime() {
   clearInterval(time);
 }
 
-// found math function
-function greatNotification() {
-  const notification = document.createElement('div');
-  notification.innerHTML += '<span>Great, you found a match</span>';
-  notification.classList.add('notification');
+// // found math function
+// function greatNotification() {
+//   const notification = document.createElement('div');
+//   notification.innerHTML += '<span>Great, you found a match</span>';
+//   notification.classList.add('notification');
 
-  document.querySelector('.board--second').appendChild(notification);
+//   document.querySelector('.board--second').appendChild(notification);
 
-  setTimeout(() => {
-    notification.remove();
-  }, 1500);
-}
+//   setTimeout(() => {
+//     notification.remove();
+//   }, 1500);
+// }
 
-// try again function
-function wrongNotification() {
-  const notification = document.createElement('div');
-  notification.innerHTML += '<span>Try again</span>';
-  notification.classList.add('notification');
-  notification.style.color = '#e2222d';
+// // try again function
+// function wrongNotification() {
+//   const notification = document.createElement('div');
+//   notification.innerHTML += '<span>Try again</span>';
+//   notification.classList.add('notification');
+//   notification.style.color = '#e2222d';
 
-  document.querySelector('.board--second').appendChild(notification);
+//   document.querySelector('.board--second').appendChild(notification);
 
-  setTimeout(() => {
-    notification.remove();
-  }, 1500);
-}
+//   setTimeout(() => {
+//     notification.remove();
+//   }, 1500);
+// }
 
 // close modal
 function closeModal() {
