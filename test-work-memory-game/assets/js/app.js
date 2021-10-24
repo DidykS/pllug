@@ -188,26 +188,29 @@ function flipCard() {
 function checkForMatch() {
   const gameCard = document.querySelectorAll('.game__card');
 
-  const first = chosenCardId[0];
-  const second = chosenCardId[1];
+  const firstCard = chosenCardId[0];
+  const secondCard = chosenCardId[1];
 
-  if (chosenCard[0] === chosenCard[1] && first !== second) {
+  if (chosenCard[0] === chosenCard[1] && firstCard !== secondCard) {
     greatNotification();
 
-    gameCard[first].querySelector('.game__card--side').style.opacity = '0.6';
-    gameCard[second].querySelector('.game__card--side').style.opacity = '0.6';
-    gameCard[first].querySelector('.game__card--side').style.cursor = 'default';
-    gameCard[second].querySelector('.game__card--side').style.cursor =
+    gameCard[firstCard].querySelector('.game__card--side').style.opacity =
+      '0.6';
+    gameCard[secondCard].querySelector('.game__card--side').style.opacity =
+      '0.6';
+    gameCard[firstCard].querySelector('.game__card--side').style.cursor =
+      'default';
+    gameCard[secondCard].querySelector('.game__card--side').style.cursor =
       'default';
 
-    gameCard[first].parentElement.removeEventListener('click', flipCard);
-    gameCard[second].parentElement.removeEventListener('click', flipCard);
+    gameCard[firstCard].parentElement.removeEventListener('click', flipCard);
+    gameCard[secondCard].parentElement.removeEventListener('click', flipCard);
 
     wonCard.push(chosenCard);
   } else {
     wrongNotification();
-    gameCard[first].style.transform = 'rotateY(0deg)';
-    gameCard[second].style.transform = 'rotateY(0deg)';
+    gameCard[firstCard].style.transform = 'rotateY(0deg)';
+    gameCard[secondCard].style.transform = 'rotateY(0deg)';
   }
 
   chosenCard = [];
