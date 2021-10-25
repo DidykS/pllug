@@ -288,31 +288,31 @@ function stopTime() {
 }
 
 // // found math function
-// function greatNotification() {
-//   const notification = document.createElement('div');
-//   notification.innerHTML += '<span>Great, you found a match</span>';
-//   notification.classList.add('notification');
+/* function greatNotification() {
+  const notification = document.createElement('div');
+  notification.innerHTML += '<span>Great, you found a match</span>';
+  notification.classList.add('notification');
 
-//   document.querySelector('.board--second').appendChild(notification);
+  document.querySelector('.board--second').appendChild(notification);
 
-//   setTimeout(() => {
-//     notification.remove();
-//   }, 1500);
-// }
+  setTimeout(() => {
+    notification.remove();
+  }, 1500);
+} */
 
-// // try again function
-// function wrongNotification() {
-//   const notification = document.createElement('div');
-//   notification.innerHTML += '<span>Try again</span>';
-//   notification.classList.add('notification');
-//   notification.style.color = '#e2222d';
+// try again function
+/* function wrongNotification() {
+  const notification = document.createElement('div');
+  notification.innerHTML += '<span>Try again</span>';
+  notification.classList.add('notification');
+  notification.style.color = '#e2222d';
 
-//   document.querySelector('.board--second').appendChild(notification);
+  document.querySelector('.board--second').appendChild(notification);
 
-//   setTimeout(() => {
-//     notification.remove();
-//   }, 1500);
-// }
+  setTimeout(() => {
+    notification.remove();
+  }, 1500);
+} */
 
 // close modal
 function closeModal() {

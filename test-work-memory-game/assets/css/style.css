@@ -210,7 +210,7 @@ h6 {
 
 .modal__content {
   position: relative;
-  margin: 20% auto;
+  margin: 15% auto;
   padding: 20px;
   width: 40%;
   z-index: 10000;
@@ -319,6 +319,11 @@ h6 {
   .board__info {
     width: 90%;
   }
+  .modal__content {
+    margin: 45% auto;
+    padding: 20px;
+    width: 60%;
+  }
 }
 
 @media (max-width: 992px) {
@@ -351,6 +356,11 @@ h6 {
     width: 52px;
     height: 52px;
   }
+  .modal__content {
+    margin: 50% auto;
+    padding: 20px;
+    width: 60%;
+  }
 }
 
 @media (max-width: 768px) {
@@ -382,6 +392,10 @@ h6 {
   .game__card--side img:nth-child(2) {
     width: 42px;
     height: 42px;
+  }
+  .modal__content {
+    padding: 20px;
+    width: 60%;
   }
 }
 
@@ -428,6 +442,11 @@ h6 {
     width: 32px;
     height: 32px;
   }
+  .modal__content {
+    margin: 50% auto;
+    padding: 15px;
+    width: 80%;
+  }
 }
 
 @media (max-width: 481px) {
@@ -465,6 +484,19 @@ h6 {
   .game__card--side img:nth-child(2) {
     width: 28px;
     height: 28px;
+  }
+  .modal__content {
+    font-size: 15px;
+  }
+  .modal__buttons {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+  .btn {
+    padding: 10px 30px;
   }
 }
 
@@ -504,6 +536,9 @@ h6 {
   .game__card--side img:nth-child(2) {
     width: 24px;
     height: 24px;
+  }
+  .btn {
+    padding: 10px 20px;
   }
 }
 /*# sourceMappingURL=style.css.map */

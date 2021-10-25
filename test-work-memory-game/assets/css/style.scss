@@ -201,7 +201,7 @@ h6 {
 
   &__content {
     position: relative;
-    margin: 20% auto;
+    margin: 15% auto;
     padding: 20px;
     width: 40%;
     z-index: 10000;
@@ -292,6 +292,12 @@ h6 {
   .board__info {
     width: 90%;
   }
+
+  .modal__content {
+    margin: 45% auto;
+    padding: 20px;
+    width: 60%;
+  }
 }
 
 // FOR BROWSERS SMALLER THAN 992px
@@ -332,6 +338,12 @@ h6 {
     width: 52px;
     height: 52px;
   }
+
+  .modal__content {
+    margin: 50% auto;
+    padding: 20px;
+    width: 60%;
+  }
 }
 
 // FOR BROWSERS SMALLER THAN 768px
@@ -371,6 +383,11 @@ h6 {
   .game__card--side img:nth-child(2) {
     width: 42px;
     height: 42px;
+  }
+
+  .modal__content {
+    padding: 20px;
+    width: 60%;
   }
 }
 
@@ -424,6 +441,12 @@ h6 {
     width: 32px;
     height: 32px;
   }
+
+  .modal__content {
+    margin: 50% auto;
+    padding: 15px;
+    width: 80%;
+  }
 }
 
 // FOR MOBILE BROWSERS SMALLER THAN 481px
@@ -472,9 +495,22 @@ h6 {
     width: 28px;
     height: 28px;
   }
+
+  .modal__content {
+    font-size: 15px;
+  }
+
+  .modal__buttons {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .btn {
+    padding: 10px 30px;
+  }
 }
 
-// FOR MOBILE BROWSERS SMALLER THAN 378px
+// FOR MOBILE BROWSERS SMALLER THAN 376px
 @media (max-width: 376px) {
   .board__logo {
     width: 90%;
@@ -519,5 +555,9 @@ h6 {
   .game__card--side img:nth-child(2) {
     width: 24px;
     height: 24px;
+  }
+
+  .btn {
+    padding: 10px 20px;
   }
 }
