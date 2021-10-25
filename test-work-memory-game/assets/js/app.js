@@ -209,11 +209,16 @@ function checkForMatch() {
     gameCard[secondCard].parentElement.removeEventListener('click', flipCard);
 
     wonCard.push(chosenCard);
+  } else if (firstCard == secondCard) {
+    moves--;
+    gameCard[firstCard].style.transform = 'rotateY(0deg)';
+    gameCard[secondCard].style.transform = 'rotateY(0deg)';
   } else {
     // wrongNotification();
     gameCard[firstCard].style.transform = 'rotateY(0deg)';
     gameCard[secondCard].style.transform = 'rotateY(0deg)';
   }
+  console.log(moves);
 
   chosenCard = [];
   chosenCardId = [];
