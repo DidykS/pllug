@@ -41,6 +41,17 @@ h6 {
   padding: 0;
 }
 
+// CONTAINER
+.container {
+  width: 100%;
+  max-width: 1250px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 // BTN
 .btn {
   display: inline-block;
@@ -99,7 +110,7 @@ h6 {
 
   // second board
   &__info {
-    width: 65%;
+    width: 100%;
     margin-bottom: 20px;
     display: flex;
     justify-content: space-between;
@@ -288,16 +299,34 @@ h6 {
 }
 
 // MEDIA
-// FOR BROWSERS SMALLER THAN 992px
+// FOR BROWSERS SMALLER THAN 1200px
 @media (max-width: 1200px) {
   .board__info {
-    width: 90%;
+    width: 73%;
+  }
+
+  .game__item,
+  .game__card,
+  .game__card--side {
+    width: 140px;
+    height: 200px;
+  }
+
+  .game {
+    max-width: 991px;
   }
 
   .modal__content {
     margin: 45% auto;
     padding: 20px;
     width: 60%;
+  }
+}
+
+// FOR BROWSERS WITH 1024 px
+@media (max-width: 1024px) {
+  .board__info {
+    width: 85%;
   }
 }
 
@@ -308,18 +337,11 @@ h6 {
   }
 
   .board__info {
-    width: 87%;
+    width: 88%;
 
     &--item {
       font-size: 30px;
     }
-  }
-
-  .game__item,
-  .game__card,
-  .game__card--side {
-    width: 140px;
-    height: 200px;
   }
 
   .game {
@@ -462,7 +484,7 @@ h6 {
   }
 
   .board__info {
-    width: 80%;
+    width: 85%;
 
     &--item {
       width: 30px;
@@ -523,7 +545,7 @@ h6 {
   }
 
   .board__info {
-    width: 88%;
+    width: 90%;
 
     &--item {
       width: 12px;
