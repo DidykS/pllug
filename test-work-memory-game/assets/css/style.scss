@@ -108,7 +108,7 @@ h6 {
     color: $text;
   }
 
-  // second board
+  // SECOND
   &__info {
     width: 100%;
     margin-bottom: 20px;
@@ -264,6 +264,7 @@ h6 {
 // }
 
 // ANIMATIONS
+// ANIMATION FOR ROTATE CARD
 @keyframes rotateCard {
   20%,
   90% {
@@ -276,6 +277,7 @@ h6 {
   }
 }
 
+// ANIMATION FOR APPEARING MODAL WINDOW
 @keyframes animateStart {
   from {
     top: -300px;
@@ -287,6 +289,7 @@ h6 {
   }
 }
 
+// ANIMATION FOR CLOSE MODAL WINDOW
 @keyframes animateEnd {
   from {
     top: 0;
@@ -299,7 +302,7 @@ h6 {
 }
 
 // MEDIA
-// FOR BROWSERS SMALLER THAN 1200px
+// FOR BROWSERS WITH 1200px
 @media (max-width: 1200px) {
   .board__info {
     width: 73%;
