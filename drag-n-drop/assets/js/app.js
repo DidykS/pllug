@@ -64,7 +64,9 @@ function displayImage(file, idx) {
   if (file.type == 'text/plain') {
     item.innerHTML = `
     <div class="item__info">
-      <img class="item__info--img" src="./images/txt.png" alt="${file.name}" />
+      <img class="item__info--img" src="./assets/images/txt.png" alt="${
+        file.name
+      }" />
       <span class="item__info--name">${file.name}</span>
       <span class="item__info--size">${bytesToSize(file.size)}</span>
       <button id="${idx}" class="btn primary">Delete</button>
@@ -73,7 +75,9 @@ function displayImage(file, idx) {
   } else if (file.type == 'text/csv') {
     item.innerHTML = `
     <div class="item__info">
-      <img class="item__info--img" src="./images/csv.png" alt="${file.name}" />
+      <img class="item__info--img" src="./assets/images/csv.png" alt="${
+        file.name
+      }" />
       <span class="item__info--name">${file.name}</span>
       <span class="item__info--size">${bytesToSize(file.size)}</span>
       <button id="${idx}" class="btn primary">Delete</button>
