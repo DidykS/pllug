@@ -192,4 +192,22 @@ a {
   -webkit-transition: 0.2s linear;
   transition: 0.2s linear;
 }
+
+@-webkit-keyframes animate {
+  from {
+    top: 0;
+  }
+  to {
+    top: -25px;
+  }
+}
+
+@keyframes animate {
+  from {
+    top: 0;
+  }
+  to {
+    top: -25px;
+  }
+}
 /*# sourceMappingURL=style.css.map */
