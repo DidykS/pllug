@@ -16,6 +16,25 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body>
+    <div class="container">
+      <div class="warning"></div>
+
+      <div class="card">
+        <div class="card__icon"><i class="fas fa-cloud-upload-alt"></i></div>
+        <div class="card__title">Drag & Drop to Upload File</div>
+        <span>or</span>
+        <button class="btn">Browse File</button>
+        <input
+          id="input"
+          class="card__input"
+          type="file"
+          multiple
+          accept="image/*, .txt, .csv"
+        />
+      </div>
+      <div class="preview"></div>
+    </div>
+
     <!-- SortableJs -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.10.2/Sortable.min.js"></script>
     <!-- JavaScript -->

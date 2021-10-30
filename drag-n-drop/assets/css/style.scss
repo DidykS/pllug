@@ -60,3 +60,128 @@ a {
   margin: 0 auto;
   padding: 0 15px;
 }
+
+//BTN
+.btn {
+  color: $green;
+  position: relative;
+  padding: 0.5rem 1.5rem;
+
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 700;
+
+  outline: none;
+  background: $white;
+  border-radius: 99px;
+  border: 1px solid $green;
+
+  transition: all 0.22s;
+  cursor: pointer;
+
+  &:active {
+    box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.3);
+  }
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+
+  &.primary {
+    background: $green;
+    color: $white;
+  }
+}
+
+// CARD
+.card {
+  padding: 16px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  border: 3px dashed $green;
+  border-radius: 6px;
+  background: $white;
+  box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.2);
+
+  &.active {
+    border: 2px solid $green;
+  }
+
+  &__icon {
+    position: relative;
+    font-size: 100px;
+    color: $green;
+    transition: animation 0.2s;
+  }
+
+  & span {
+    font-size: 25px;
+    font-weight: 500;
+    color: $text;
+    margin: 10px 0 15px 0;
+  }
+
+  &__input {
+    display: none;
+  }
+
+  &__title {
+    font-size: 30px;
+    font-weight: 500;
+    color: $text;
+  }
+}
+
+// PREVIEW
+.preview {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+
+  border-radius: 6px;
+  background-color: $white;
+}
+
+// ITEM
+.item {
+  margin: 3px;
+  padding: 2px;
+
+  &__info {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-radius: 6px;
+    background-color: $item-bg;
+
+    &--img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+
+      border: 1px solid $green;
+      border-radius: 6px;
+    }
+  }
+}
+
+// WARNING
+.warning {
+  opacity: 0;
+  margin-bottom: 10px;
+  padding: 20px;
+
+  color: $white;
+  background-color: $danger;
+  border-radius: 6px;
+
+  transition: 0.2s linear;
+}
