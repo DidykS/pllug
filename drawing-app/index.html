@@ -5,6 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Drawing App</title>
+    <!-- BOX ICONS -->
+    <link
+      href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- FONT AWESOME -->
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
 
     <!-- CSS -->
     <link rel="stylesheet" href="./assets/css/style.css" />
@@ -58,6 +71,37 @@
             />
           </div>
 
+          <div class="app__set-shapes">
+            <div
+              class="app__set-shapes--shape"
+              data-shape="line"
+              onclick="selectShape(this)"
+            >
+              <i class="fas fa-pen"></i>
+            </div>
+            <div
+              class="app__set-shapes--shape"
+              data-shape="circle"
+              onclick="selectShape(this)"
+            >
+              <i class="fas fa-circle"></i>
+            </div>
+            <div
+              class="app__set-shapes--shape"
+              data-shape="square"
+              onclick="selectShape(this)"
+            >
+              <i class="fas fa-square-full"></i>
+            </div>
+            <div
+              class="app__set-shapes--shape"
+              data-shape="rect"
+              onclick="selectShape(this)"
+            >
+              <i class="bx bxs-rectangle"></i>
+            </div>
+          </div>
+
           <div id="pen-size" class="app__pen-size">
             <label for="pen-size">Pen size:</label>
             <input
@@ -76,6 +120,7 @@
         <canvas id="canvas" width="1138px" height="650px"></canvas>
       </div>
     </div>
+
     <!-- JavaScript -->
     <script src="./assets/js/app.js"></script>
   </body>

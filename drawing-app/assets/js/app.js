@@ -1,12 +1,14 @@
 const colors = document.querySelectorAll('.drawing__colors--color');
 const canvas = document.querySelector('#canvas');
 const btn = document.querySelector('.btn');
+const rect = document.querySelector('.btn-rect');
 
 let penSize = 10;
+let shape = 'line';
 let isDrawing;
 let x;
 let y;
-
+console.log(shape);
 const context = canvas.getContext('2d');
 context.fillStyle = 'black';
 context.strokeStyle = context.fillStyle;
@@ -24,7 +26,15 @@ canvas.addEventListener('mouseup', (e) => {
 });
 
 canvas.addEventListener('mousemove', (e) => {
-  draw(e.offsetX, e.offsetY);
+  if (shape === 'line') {
+    draw(e.offsetX, e.offsetY);
+  } else if (shape === 'circle') {
+    deawCircle(x, y);
+  } else if (shape === 'square') {
+    drawSquare(x, y);
+  } else if (shape === 'rect') {
+    drawRect(x, y);
+  }
 });
 
 btn.addEventListener('click', clearSpace);
@@ -54,6 +64,28 @@ function drawLine(offsetX1, offsetY1, offsetX2, offsetY2) {
   context.stroke();
 }
 
+// draw circle
+function deawCircle(offsetX, offsetY) {
+  context.beginPath();
+  context.arc(offsetX, offsetY, penSize, 0, Math.PI * 2);
+  context.closePath();
+  context.strokeStyle = context.fillStyle;
+  context.fill();
+}
+
+// draw square
+function drawSquare(offsetX, offsetY) {
+  context.fillRect(offsetX, offsetY, penSize, penSize);
+  context.strokeStyle = context.fillStyle;
+  context.lineWidth = penSize * 2;
+}
+
+// draw rectangle
+function drawRect(offsetX, offsetY) {
+  context.fillRect(offsetX, offsetY, penSize * 2, penSize);
+  context.strokeStyle = context.fillStyle;
+}
+
 // clear space function
 function clearSpace() {
   context.clearRect(0, 0, canvas.width, canvas.height);
@@ -81,4 +113,9 @@ function setColor(elem) {
   });
 
   context.fillStyle = elem.value;
+}
+
+// select shape
+function selectShape(elem) {
+  shape = elem.getAttribute('data-shape');
 }

@@ -97,6 +97,33 @@ a {
   cursor: pointer;
 }
 
+.app__set-shapes {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.app__set-shapes--shape {
+  padding: 3px;
+  margin-left: 3px;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid #333;
+  background-color: #faf9f6;
+  cursor: pointer;
+}
+
 .drawing__colors {
   display: -webkit-box;
   display: -ms-flexbox;
