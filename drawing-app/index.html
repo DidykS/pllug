@@ -25,7 +25,18 @@
   <body>
     <div class="container">
       <div class="app">
-        <button class="btn">Clear</button>
+        <div class="app__buttons">
+          <div class="app__buttons--download">
+            <p>
+              Download an image:
+              <a class="link" href="" download="my_painting.png">Download</a>
+            </p>
+          </div>
+          <div class="app__buttons--clear">
+            <p>Clear field:</p>
+            <button class="btn">Clear</button>
+          </div>
+        </div>
         <div id="pen-tools" class="app__pen-tools">
           <div id="drawing__colors" class="drawing__colors">
             <div
@@ -58,6 +69,11 @@
               data-color="green"
               onclick="selectColor(this)"
             ></div>
+            <div
+              class="drawing__colors--color"
+              data-color="white"
+              onclick="selectColor(this)"
+            ></div>
           </div>
 
           <div id="set-color" class="app__set-color">
@@ -72,6 +88,7 @@
           </div>
 
           <div class="app__set-shapes">
+            Select your shape:
             <div
               class="app__set-shapes--shape"
               data-shape="line"
@@ -110,8 +127,8 @@
               name="pen-size"
               value="10"
               step="5"
-              min="5"
-              max="40"
+              min="1"
+              max="100"
               onchange="setSize(this.value)"
             />
           </div>

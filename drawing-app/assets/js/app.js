@@ -8,7 +8,7 @@ let shape = 'line';
 let isDrawing;
 let x;
 let y;
-console.log(shape);
+
 const context = canvas.getContext('2d');
 context.fillStyle = 'black';
 context.strokeStyle = context.fillStyle;

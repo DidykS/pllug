@@ -49,6 +49,40 @@ a {
   font-weight: 500;
 }
 
+// LINK
+.link {
+  padding: 5px 10px;
+
+  background-color: #4c4cff;
+
+  color: $white;
+
+  transition: background-color 0.2s linear;
+
+  &:hover {
+    background-color: darken($color: #4c4cff, $amount: 10);
+  }
+}
+
+// BTN
+.btn {
+  padding: 10px 20px;
+  border: 0;
+  outline: none;
+
+  background-color: #4c4cff;
+
+  color: $white;
+
+  cursor: pointer;
+
+  transition: background-color 0.2s linear;
+
+  &:hover {
+    background-color: darken($color: #4c4cff, $amount: 10);
+  }
+}
+
 // CONTAINER
 .container {
   max-width: 1170px;
@@ -60,6 +94,25 @@ a {
 // APP
 .app {
   margin-top: 20px;
+
+  &__buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+
+    font-size: 16px;
+
+    &--clear {
+      margin-left: 20px;
+      display: flex;
+      align-items: center;
+
+      & p {
+        margin-right: 5px;
+      }
+    }
+  }
 
   &__pen-tools {
     padding: 10px;
@@ -107,6 +160,12 @@ a {
       border: 1px solid $black;
       background-color: #faf9f6;
       cursor: pointer;
+
+      transition: background-color 0.2s linear;
+
+      &:hover {
+        background-color: darken($color: #faf9f6, $amount: 20);
+      }
     }
   }
 }
@@ -124,6 +183,8 @@ a {
     border: 1px solid $black;
 
     cursor: pointer;
+
+    transition: transform 0.2s linear;
 
     &:nth-child(1) {
       background-color: black;
@@ -143,8 +204,15 @@ a {
     &:nth-child(6) {
       background-color: green;
     }
+    &:nth-child(7) {
+      background-color: $white;
+    }
 
     &.active {
+      transform: scale(1.3);
+    }
+
+    &:hover {
       transform: scale(1.3);
     }
   }
