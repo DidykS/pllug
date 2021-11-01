@@ -13,38 +13,66 @@
     <div class="container">
       <div class="app">
         <div id="pen-tools" class="app__pen-tools">
-          <div id="drawing__colors" class="drawing__colors"></div>
-          <div
-            class="color active"
-            data-color="black"
-            onclick="selectColor(this)"
-          ></div>
-          <div
-            class="color"
-            data-color="red"
-            onclick="selectColor(this)"
-          ></div>
-          <div
-            class="color"
-            data-color="blue"
-            onclick="selectColor(this)"
-          ></div>
-          <div
-            class="color"
-            data-color="yellow"
-            onclick="selectColor(this)"
-          ></div>
-          <div
-            class="color"
-            data-color="pink"
-            onclick="selectColor(this)"
-          ></div>
-          <div
-            class="color"
-            data-color="green"
-            onclick="selectColor(this)"
-          ></div>
+          <div id="drawing__colors" class="drawing__colors">
+            <div
+              class="color active"
+              data-color="black"
+              onclick="selectColor(this)"
+            ></div>
+            <div
+              class="color"
+              data-color="red"
+              onclick="selectColor(this)"
+            ></div>
+            <div
+              class="color"
+              data-color="blue"
+              onclick="selectColor(this)"
+            ></div>
+            <div
+              class="color"
+              data-color="yellow"
+              onclick="selectColor(this)"
+            ></div>
+            <div
+              class="color"
+              data-color="pink"
+              onclick="selectColor(this)"
+            ></div>
+            <div
+              class="color"
+              data-color="green"
+              onclick="selectColor(this)"
+            ></div>
+          </div>
+
+          <div id="set-color" class="app__set-color">
+            <label for="color">Select your favorite color:</label>
+            <input
+              id="color"
+              type="color"
+              name="color"
+              value="#ff0000"
+              onchange="setColor(this)"
+            />
+          </div>
+
+          <div id="pen-size" class="app__pen-size">
+            <label for="pen-size">Pen size:</label>
+            <input
+              id="pen-size"
+              type="range"
+              name="pen-size"
+              value="10"
+              step="5"
+              min="5"
+              max="40"
+              onchange="setSize(this.value)"
+            />
+          </div>
         </div>
+
+        <canvas id="canvas" width="800px" height="600px"></canvas>
       </div>
     </div>
     <!-- JavaScript -->
