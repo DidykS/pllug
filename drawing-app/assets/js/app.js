@@ -2,6 +2,7 @@ const colors = document.querySelectorAll('.drawing__colors--color');
 const canvas = document.querySelector('#canvas');
 const btn = document.querySelector('.btn');
 const rect = document.querySelector('.btn-rect');
+const link = document.querySelector('.link');
 
 let penSize = 10;
 let shape = 'line';
@@ -38,6 +39,7 @@ canvas.addEventListener('mousemove', (e) => {
 });
 
 btn.addEventListener('click', clearSpace);
+link.addEventListener('click', dowloadPaint);
 
 // functions:
 // draw function
@@ -118,4 +120,9 @@ function setColor(elem) {
 // select shape
 function selectShape(elem) {
   shape = elem.getAttribute('data-shape');
+}
+
+// download painting
+function dowloadPaint(e) {
+  e.target.href = canvas.toDataURL();
 }
