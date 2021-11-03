@@ -1,6 +1,3 @@
-// FONTS
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-
 // VARIABLES
 $text: #000;
 $text-light: #f4f4f6;
@@ -55,4 +52,20 @@ a {
 
   display: flex;
   justify-content: center;
+}
+
+// APP
+.app {
+  margin-top: 150px;
+
+  &__title {
+    color: #b0a3a7;
+    font-size: 46px;
+    font-weight: 300;
+
+    & span {
+      color: $text;
+      font-weight: 700;
+    }
+  }
 }
