@@ -1,6 +1,7 @@
 // VARIABLES
 $text: #000;
-$text-light: #f4f4f6;
+$bg: #f4f4f6;
+$text-light: #b0a3a7;
 $red: #be0909;
 
 // MAIN STYLES
@@ -22,6 +23,8 @@ body {
   font-size: 16px;
   font-weight: 500;
   color: $text;
+
+  background-color: $bg;
 }
 
 h1,
@@ -56,10 +59,15 @@ a {
 
 // APP
 .app {
+  width: 560px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin-top: 150px;
 
   &__title {
-    color: #b0a3a7;
+    color: $text-light;
     font-size: 46px;
     font-weight: 300;
 
@@ -67,5 +75,46 @@ a {
       color: $text;
       font-weight: 700;
     }
+  }
+
+  &__add {
+    margin-top: 50px;
+    width: 100%;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__input {
+    width: 100%;
+    padding: 15px 25px;
+
+    outline: none;
+    border: 0;
+    border: 1px solid $text-light;
+    border-radius: 25px;
+    background-color: $bg;
+
+    font-size: 16px;
+    color: $text;
+  }
+
+  &__btn {
+    margin-top: 25px;
+    height: 40px;
+    width: 40px;
+
+    line-height: 40px;
+    font-size: 30px;
+
+    color: lighten($text, 30);
+
+    border: 1px solid $text-light;
+    background-color: $bg;
+
+    cursor: pointer;
   }
 }

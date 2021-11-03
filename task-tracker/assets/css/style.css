@@ -16,6 +16,7 @@ body {
   font-size: 16px;
   font-weight: 500;
   color: #000;
+  background-color: #f4f4f6;
 }
 
 h1,
@@ -52,6 +53,20 @@ a {
 }
 
 .app {
+  width: 560px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin-top: 150px;
 }
 
@@ -64,5 +79,47 @@ a {
 .app__title span {
   color: #000;
   font-weight: 700;
+}
+
+.app__add {
+  margin-top: 50px;
+  width: 100%;
+}
+
+.form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.form__input {
+  width: 100%;
+  padding: 15px 25px;
+  outline: none;
+  border: 0;
+  border: 1px solid #b0a3a7;
+  border-radius: 25px;
+  background-color: #f4f4f6;
+  font-size: 16px;
+  color: #000;
+}
+
+.form__btn {
+  margin-top: 25px;
+  height: 40px;
+  width: 40px;
+  line-height: 40px;
+  font-size: 30px;
+  color: #4d4d4d;
+  border: 1px solid #b0a3a7;
+  background-color: #f4f4f6;
+  cursor: pointer;
 }
 /*# sourceMappingURL=style.css.map */
