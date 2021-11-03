@@ -15,6 +15,7 @@ if (!localStorage.taskList) {
 class Task {
   constructor(description) {
     this.description = description;
+    this.status = false;
   }
 }
 
@@ -37,18 +38,12 @@ function updateLocalStorage() {
 // create task template
 function createTask(item, idx) {
   return `
-    <div class="task__item">
+    <div class="${item.status === false ? 'task__item paused' : 'task__item'}">
       <div class="task__item--name">${item.description}</div>
       <div class="task__item--tracking">
-        <span id="timer" class="task__item--tracking--timer"
-          >00:00:00</span
-        >
-        <span id="startStop" class="task__item--tracking--start-stop"
-          ><i class="far fa-pause-circle"></i>
-        </span>
-        <span id="deleteTask" class="task__item--tracking--delele" onclick="deleteTask(${idx})"
-          ><i class="far fa-trash-alt"></i
-        ></span>
+        <span id="timer" class="task__item--tracking--timer">00:00:00</span>
+        <span id="startStop" class="task__item--tracking--start-stop" onclick="changeStatus(this, ${idx})"></span>
+        <span id="deleteTask" class="task__item--tracking--delele" onclick="deleteTask(${idx})"><i class="far fa-trash-alt"></i></span>
       </div>
     </div>
   `;
@@ -58,9 +53,11 @@ function createTask(item, idx) {
 function addTaskToHtml() {
   board.innerHTML = '';
 
-  taskList.map((item, idx) => {
-    board.innerHTML += createTask(item, idx);
-  });
+  if (taskList.length > 0) {
+    taskList.forEach((item, idx) => {
+      board.innerHTML += createTask(item, idx);
+    });
+  }
 }
 
 addTaskToHtml();
@@ -68,6 +65,21 @@ addTaskToHtml();
 // delete Task
 function deleteTask(idx) {
   taskList.splice(idx, 1);
+
+  updateLocalStorage();
+  addTaskToHtml();
+}
+
+// complete
+function changeStatus(elem, idx) {
+  taskList[idx].status = !taskList[idx].status;
+  const element = elem.parentNode.parentNode;
+
+  if (taskList[idx].status) {
+    element.classList.remove('paused');
+  } else {
+    element.classList.add('paused');
+  }
 
   updateLocalStorage();
   addTaskToHtml();
