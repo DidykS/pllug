@@ -16,6 +16,8 @@ class Task {
   constructor(description) {
     this.description = description;
     this.status = false;
+    this.date = new Date().toLocaleString();
+    this.timer = 0;
   }
 }
 
@@ -39,9 +41,13 @@ function updateLocalStorage() {
 function createTask(item, idx) {
   return `
     <div class="${item.status === false ? 'task__item paused' : 'task__item'}">
-      <div class="task__item--name">${item.description}</div>
+      <div class="task__item--name">${
+        item.description ? item.description : item.date
+      }</div>
       <div class="task__item--tracking">
-        <span id="timer" class="task__item--tracking--timer">00:00:00</span>
+        <span id="timer" class="task__item--tracking--timer">${
+          item.timer
+        }</span>
         <span id="startStop" class="task__item--tracking--start-stop" onclick="changeStatus(this, ${idx})"></span>
         <span id="deleteTask" class="task__item--tracking--delele" onclick="deleteTask(${idx})"><i class="far fa-trash-alt"></i></span>
       </div>
