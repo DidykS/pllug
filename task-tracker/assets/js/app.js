@@ -1,9 +1,12 @@
+/* Прошу вашої допомоги з реалізацією секундоміра, перепробував багато способів, жлден з них не виходив, буду дуже вдячний за пояснення і допомогу */
+
 const form = document.querySelector('#form');
 const input = document.querySelector('#input');
 const board = document.querySelector('#board');
 
 // create task list
 let taskList = [];
+let list;
 
 if (!localStorage.taskList) {
   taskList = [];
@@ -17,7 +20,7 @@ class Task {
     this.description = description;
     this.status = false;
     this.date = new Date().toLocaleString();
-    this.timer = 0;
+    this.timer = '00:00:00';
   }
 }
 
@@ -45,9 +48,8 @@ function createTask(item, idx) {
         item.description ? item.description : item.date
       }</div>
       <div class="task__item--tracking">
-        <span id="timer" class="task__item--tracking--timer">${
-          item.timer
-        }</span>
+        <span id="timer" class="task__item--tracking--timer">00:00:00
+        </span>
         <span id="startStop" class="task__item--tracking--start-stop" onclick="changeStatus(this, ${idx})"></span>
         <span id="deleteTask" class="task__item--tracking--delele" onclick="deleteTask(${idx})"><i class="far fa-trash-alt"></i></span>
       </div>
@@ -63,6 +65,8 @@ function addTaskToHtml() {
     taskList.forEach((item, idx) => {
       board.innerHTML += createTask(item, idx);
     });
+
+    list = document.querySelectorAll('.task__item');
   }
 }
 
