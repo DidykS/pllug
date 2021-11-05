@@ -94,3 +94,11 @@ function changeStatus(elem, idx) {
   updateLocalStorage();
   addTaskToHtml();
 }
+
+window.onstorage = () => {
+  if (!localStorage.taskList) {
+    taskList = [];
+  } else {
+    taskList = JSON.parse(localStorage.getItem('taskList'));
+  }
+};
