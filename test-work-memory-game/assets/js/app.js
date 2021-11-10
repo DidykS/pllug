@@ -325,3 +325,10 @@ function closeModal() {
     modal.style.display = 'none';
   }, 200);
 }
+
+// check service worker
+if (navigator?.serviceWorker) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('service-worker.js');
+  });
+}
