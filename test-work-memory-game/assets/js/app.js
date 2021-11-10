@@ -329,6 +329,6 @@ function closeModal() {
 // check service worker
 if (navigator?.serviceWorker) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('service-worker.js');
+    navigator.serviceWorker.register('service-worker');
   });
 }
