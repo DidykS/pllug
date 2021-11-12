@@ -248,4 +248,17 @@ a {
   border-radius: 50px;
   cursor: pointer;
 }
+
+.description {
+  width: 100%;
+  padding: 0 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-weight: 500;
+  font-size: 18px;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  text-align: center;
+}
 /*# sourceMappingURL=style.css.map */
