@@ -16,6 +16,72 @@
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
+    <!-- INPUTS FOR LATITUDE AND LONGITUDE -->
+    <input type="hidden" id="latitude" name="latitude" />
+    <input type="hidden" id="longitude" name="longitude" />
+
+    <!-- MAIN WRAPPER -->
+    <div class="wrapper">
+      <div class="app">
+        <div class="app__title">
+          <h1>Find what you need</h1>
+        </div>
+
+        <div class="app__options">
+          <div class="app__options--select">
+            <span class="app__options--select--label">
+              Сhoose your favorite place
+            </span>
+            <select id="select" class="select">
+              <option value="restaurant" selected>Restaurant</option>
+              <option value="museum">Museum</option>
+              <option value="hotel">Hotel</option>
+              <option value="coffee">Сafe</option>
+              <option value="McDonalds">McDonalds</option>
+            </select>
+          </div>
+
+          <div class="app__options--range">
+            <span class="app__options--range--label">Select the distance:</span>
+            <span class="app__options--range--output"></span>
+            <input
+              class="range"
+              type="range"
+              min="500"
+              max="10000"
+              step="100"
+              value="500"
+            />
+          </div>
+
+          <div class="app__options--rates">
+            <span class="app__options--rates--label">
+              Show on the map or download CSV file?
+            </span>
+
+            <div class="app__options--rates--rate">
+              <input
+                id="radio-1"
+                type="radio"
+                name="rate"
+                value="map"
+                checked
+              />
+              <label for="radio-1">Map</label>
+            </div>
+
+            <div class="app__options--rates--rate">
+              <input id="radio-2" type="radio" name="rate" value="csv" />
+              <label for="radio-2">CSV</label>
+            </div>
+          </div>
+
+          <button class="app__options--btn">Send</button>
+        </div>
+      </div>
+      <div class="wrapper__btn">&or;</div>
+    </div>
+
     <!-- Google Maps API -->
     <script
       async
