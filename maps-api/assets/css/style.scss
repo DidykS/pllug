@@ -61,11 +61,11 @@ a {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 4), rgba(0, 0, 0, 0));
 
   transition: 0.5s;
-  // transform: translateY(-100%);
+  transform: translateY(-100%);
 
-  // &.active {
-  //   transform: translateY(0);
-  // }
+  &.active {
+    transform: translateY(0);
+  }
 
   &__btn {
     padding: 0 15px;
@@ -287,4 +287,13 @@ a {
   transform: translate(-50%, -50%);
 
   text-align: center;
+}
+
+// MAP
+.map {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
 }
