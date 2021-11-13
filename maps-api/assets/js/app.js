@@ -19,9 +19,9 @@ showOptions.addEventListener('click', () => {
 
 // show range to html
 function rangeToHtml() {
-  output.innerHTML = range.value;
+  output.innerHTML = range.value + ' meters.';
   range.addEventListener('input', () => {
-    output.innerHTML = range.value;
+    output.innerHTML = range.value + ' meters.';
   });
 }
 
