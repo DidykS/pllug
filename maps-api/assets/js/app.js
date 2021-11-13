@@ -98,7 +98,7 @@ function initMap(data, type) {
     {
       featureType: 'poi',
       elementType: 'labels',
-      stylers: [{ visibility: 'on' }],
+      stylers: [{ visibility: 'off' }],
     },
     {
       featureType: 'road.highway',
@@ -232,7 +232,7 @@ function initMap(data, type) {
   ];
 
   const options = {
-    zoom: 15,
+    zoom: 14,
     center: { lat: latitude, lng: longitude },
     fullscreenControl: true,
     fullscreenControlOptions: {
@@ -265,6 +265,12 @@ function initMap(data, type) {
 function setMyPositionMarker(map) {
   const myPosMarker = './assets/icons/male.png';
 
+  const content = `
+      <div class="info-window__container">
+        <div class="info-window__container--title">You are here</div>
+      </div>
+      `;
+
   const marker = new google.maps.Marker({
     position: { lat: latitude, lng: longitude },
     map: map,
@@ -272,15 +278,27 @@ function setMyPositionMarker(map) {
   });
 
   const infoWindow = new google.maps.InfoWindow({
-    content: `<h1>My position</h1>`,
+    content: content,
   });
 
   infoWindow.open(map, marker);
+  marker.addListener('click', () => {
+    infoWindow.open(map, marker);
+  });
 }
 
 // get positions from data
 function getMarkers(data, map, iconMarker) {
   data.forEach((item) => {
+    const content = `
+      <div class="info-window__container">
+        <div class="info-window__container--title">${item.name}</div>
+        <div class="info-window__container--content">
+          <div class="info-window__container--subTitle">"${item.address}"</div>
+        </div>
+      </div>
+      `;
+
     const marker = new google.maps.Marker({
       position: { lat: item.lat, lng: item.lng },
       map: map,
@@ -288,9 +306,7 @@ function getMarkers(data, map, iconMarker) {
     });
 
     const infoWindow = new google.maps.InfoWindow({
-      content: `<h1>${item.name}</h1>
-      <span>${item.lat}, ${item.lng}</spam>
-      `,
+      content: content,
     });
 
     marker.addListener('click', () => {
