@@ -47,8 +47,8 @@ function setData() {
 
   const url =
     value === 'map'
-      ? 'https://198.199.125.240:8888/search'
-      : 'https://198.199.125.240:8888/csv';
+      ? 'http://198.199.125.240:8888/search'
+      : 'http://198.199.125.240:8888/csv';
 
   let object = {
     query: select.options[select.selectedIndex].value,
