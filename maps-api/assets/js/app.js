@@ -62,21 +62,25 @@ function setData() {
 
 // get data function
 async function getData(url, object, value) {
-  let response = await fetch(url, {
-    method: 'POST',
-    mode: 'cors',
-    headers: {
-      'Content-Type': 'application/json;charset=utf-8',
-    },
-    body: JSON.stringify(object),
-  });
+  try {
+    let response = await fetch(url, {
+      method: 'POST',
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      body: JSON.stringify(object),
+    });
 
-  if (value === 'map') {
-    const data = await response.json();
-    initMap(data, object.query);
-  } else {
-    const data = await response.text();
-    downloadCSV(data);
+    if (value === 'map') {
+      const data = await response.json();
+      initMap(data, object.query);
+    } else {
+      const data = await response.text();
+      downloadCSV(data);
+    }
+  } catch (error) {
+    console.log(1);
   }
 }
 
