@@ -47,8 +47,8 @@ function setData() {
 
   const url =
     value === 'map'
-      ? 'http://198.199.125.240:8888/search'
-      : 'http://198.199.125.240:8888/csv';
+      ? 'https://198.199.125.240:8888/search'
+      : 'https://198.199.125.240:8888/csv';
 
   let object = {
     query: select.options[select.selectedIndex].value,
@@ -80,7 +80,7 @@ async function getData(url, object, value) {
       downloadCSV(data);
     }
   } catch (error) {
-    console.log(1);
+    console.log(error);
   }
 }
 
