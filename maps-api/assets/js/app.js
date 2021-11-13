@@ -73,7 +73,7 @@ async function getData(url, object, value) {
 
   if (value === 'map') {
     const data = await response.json();
-    initMap(data);
+    initMap(data, object.query);
   } else {
     const data = await response.text();
     downloadCSV(data);
@@ -81,8 +81,10 @@ async function getData(url, object, value) {
 }
 
 // initialize map
-function initMap(data) {
+function initMap(data, type) {
   const element = document.querySelector('.map');
+
+  const iconMarker = checkTypePlace(type);
 
   const main_color = '#007148',
     saturation_value = -1,
@@ -230,7 +232,7 @@ function initMap(data) {
   ];
 
   const options = {
-    zoom: 10,
+    zoom: 15,
     center: { lat: latitude, lng: longitude },
     fullscreenControl: true,
     fullscreenControlOptions: {
@@ -256,14 +258,17 @@ function initMap(data) {
   const myMap = new google.maps.Map(element, options);
 
   setMyPositionMarker(myMap);
-  getMarkers(data, myMap);
+  getMarkers(data, myMap, iconMarker);
 }
 
 // set my position on the map
 function setMyPositionMarker(map) {
+  const myPosMarker = './assets/icons/male.png';
+
   const marker = new google.maps.Marker({
     position: { lat: latitude, lng: longitude },
     map: map,
+    icon: myPosMarker,
   });
 
   const infoWindow = new google.maps.InfoWindow({
@@ -274,11 +279,12 @@ function setMyPositionMarker(map) {
 }
 
 // get positions from data
-function getMarkers(data, map) {
+function getMarkers(data, map, iconMarker) {
   data.forEach((item) => {
     const marker = new google.maps.Marker({
       position: { lat: item.lat, lng: item.lng },
       map: map,
+      icon: iconMarker,
     });
 
     const infoWindow = new google.maps.InfoWindow({
@@ -316,6 +322,18 @@ function checkLocation() {
 function geoSuccess(position) {
   latitude = position.coords.latitude;
   longitude = position.coords.longitude;
+}
+
+// check type of place function
+function checkTypePlace(query) {
+  const icons = {
+    restaurant: './assets/icons/restaurant.png',
+    museum: './assets/icons/museum.png',
+    hotel: './assets/icons/lodging.png',
+    coffee: './assets/icons/cafe.png',
+    McDonalds: './assets/icons/food.png',
+  };
+  return icons[query];
 }
 
 checkLocation();
